@@ -1,16 +1,31 @@
 /*#42ab00*/
 
+.test {
+    color: #c34552;
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.clearfix:before, .clearfix:before {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
 .menu
 {
     background-color: #f7f7f7;
 
-    position: absolute;
+    position: fixed;
 
-    top: 90px;
+    top: 50px;
     left: 15px;
 
     width: 170px;
-    height: 320px;
+    height: 340px;
 
     list-style: none;
 
@@ -22,6 +37,7 @@
     margin: 10px 0;
 
     user-select: none;
+    font-size: 13pt;
 
     padding-left: 13px;
     color: #212121;
@@ -43,4 +59,20 @@
 {
     background-color: lightgray;
     height: 1px;
+}
+
+.container
+{
+    width: 79%;
+
+    margin-top: 66px;
+    margin-left: 205px;
+
+    padding-left: 15px;
+
+    font-size: 14pt;
+
+    border-left-style: solid;
+    border-color: #42ab00;
+    border-width: 3px;
 }
