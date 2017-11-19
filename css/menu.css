@@ -1,6 +1,6 @@
 .header-container {
-    background-color:#f9f9f9;
     font-family: "Roboto",sans-serif;
+    border-bottom: 4px solid #fafbf8;
 }
 .menu-desktop {
     float:right;
@@ -81,4 +81,9 @@
     -webkit-transform: rotate(45deg);
     margin-bottom: 4px;
     margin-left: 4px;
+}
+.logo-img {
+    margin: 10px;
+    height: 56px;
+    border-radius: 25px;
 }
