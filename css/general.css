@@ -1,0 +1,14 @@
+.test {
+    color: #c34552;
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.clearfix:before, .clearfix:before {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
