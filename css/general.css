@@ -6,6 +6,7 @@
 }
 body {
     margin:0;
+    font-family: "Roboto",sans-serif;
 }
 ul , ol {
     padding-left: 0;
@@ -74,6 +75,7 @@ ul , ol {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
+    box-sizing: border-box;
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
@@ -233,4 +235,10 @@ ul , ol {
     .col-md-12 {
         width: 100%;
     }
+}
+.general-color {
+    color:#42ab00;
+}
+.no-padding-left{
+    padding-left:0;
 }
