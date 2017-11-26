@@ -1,6 +1,13 @@
 .header-container {
     font-family: "Roboto",sans-serif;
-    border-bottom: 4px solid #fafbf8;
+    border-bottom: 2px solid #42ab00;
+    translate:0.3s all;
+}
+.header-container-scroll {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
 }
 .menu-desktop {
     float:right;
@@ -47,7 +54,6 @@
     content:" ";
     height:20px;
     width:20px;
-    background-image: url("../media/keyboard_arrow_down.png");
     background-position: center;
     background-repeat: no-repeat;
 }

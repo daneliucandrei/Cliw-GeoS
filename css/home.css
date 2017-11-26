@@ -30,7 +30,7 @@
 }
 .home-img_1 {
     height:100px;
-    float:right;
+    text-align: center;
     cursor:pointer;
 }
 .text-home-information--title {

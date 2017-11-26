@@ -1,0 +1,17 @@
+.cum-functioneaza::before {
+    background-image: url('../media/pin_map.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    opacity:0.2;
+    content:'';
+}
+.cum-functioneaza {
+    min-height:857px;
+    position:relative;
+}
