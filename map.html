@@ -39,16 +39,55 @@
 </div>
 <!-- Page Content -->
 <div class="container">
-    <!-- Filters -->
-    
-    <!-- Map -->
     <div class="row">
+        <!-- Filters -->
+        <div class="col-xs-12 filter-container">
+            <h1 class="general-color text-center">Harta GeoS</h1>
+            <h2 class="general-color">Filtre:</h2>
+            <div class="filter">
+                <p class="general-color title-filter">Sursa:</p>
+                <input type="checkbox" id="facebook_input" class="input-checkbox-filter" title="Ceva">
+                <label for="facebook_input" class="label-filter"><span class="checkbox-awesome"></span>Facebook</label>
+                <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
+                <label for="flickr_input" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
+                <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
+                <label for="instagram_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Instagram</label>
+            </div>
+            <div class="filter">
+                <p class="general-color title-filter">Continent:</p>
+                <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
+                <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
+                <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
+                <label for="america_input" class="label-filter"><span class="checkbox-awesome"></span>America</label>
+                <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
+                <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="australia_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Australia</label>
+                <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
+                <label for="antarctica_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Antarctica</label>
+                <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
+                <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
+            </div>
+            <div class="filter">
+                <p class="general-color title-filter">#Tag:</p>
+                <select name="select-h-tag" id="" class="select-filter">
+                    <option value="">Natura</option>
+                    <option value="">Acasa</option>
+                    <option value="">Old</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Map -->
         <div class="col-md-12">
             <div id="map" class="map"></div>
         </div>
     </div>
 </div>
-    
+
 <!-- Footer -->
 <footer>
     <div class="footer-container">
@@ -106,7 +145,7 @@
 <!-- Map Scripts -->
 <script src="js/map.js"></script>
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxbxhB8ZEoPngod4jp8DAv-M8wNaNPhKQ&callback=initMap">
-    </script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxbxhB8ZEoPngod4jp8DAv-M8wNaNPhKQ&callback=initMap">
+</script>
 </body>
 </html>

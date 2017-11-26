@@ -69,6 +69,12 @@
 }
 .social-media__img {
     height:51px;
+    transition:0.3s;
+}
+.social-media__img:hover {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 .footer-right {
     text-align: center;
