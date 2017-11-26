@@ -31,6 +31,7 @@
 .home-img_1 {
     height:100px;
     float:right;
+    cursor:pointer;
 }
 .text-home-information--title {
     font-size:20px;
