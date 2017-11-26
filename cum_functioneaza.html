@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -8,13 +8,11 @@
     <link rel="shortcut icon" type="image/png" href="media/geos.ico"/>
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/cum_functioneaza.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/map.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<!-- Header -->
 <div class="header-container">
     <div class="container">
         <div class="row">
@@ -22,73 +20,60 @@
                 <img src="media/logo_geos.png" alt="logo" class="logo-img">
             </a>
             <ul class="menu-desktop">
-                <li><a class="menu-desktop__child" href="index.html">Acasa</a></li>
-                <li><a class="menu-desktop__child" href="map.html">Harta</a></li>
+                <li><a class="menu-desktop__child" href="/">Acasa</a></li>
+                <li><a class="menu-desktop__child" href="#">Harta</a></li>
                 <li>
                     <a class="menu-desktop__child--submenu" href="#"> Despre <span
                             class="icon-keyboard_arrow_down"> </span></a>
                     <ul class="menu-desktop-submenu">
                         <li><a href="#" class="menu-desktop-submenu__child">Termeni si conditii</a></li>
                         <li><a href="#" class="menu-desktop-submenu__child">Despre noi</a></li>
-                        <li><a href="#" class="menu-desktop-submenu__child">Cum functioneaza?</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<!-- Page Content -->
-<div class="container">
-    <div class="row">
-        <!-- Filters -->
-        <div class="col-xs-12 filter-container">
-            <h1 class="general-color text-center">Harta GeoS</h1>
-            <h2 class="general-color">Filtre:</h2>
-            <div class="filter">
-                <p class="general-color title-filter">Sursa:</p>
-                <input type="checkbox" id="facebook_input" class="input-checkbox-filter" title="Ceva">
-                <label for="facebook_input" class="label-filter"><span class="checkbox-awesome"></span>Facebook</label>
-                <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
-                <label for="flickr_input" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
-                <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
-                <label for="instagram_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Instagram</label>
+<div class="cum-functioneaza">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="general-color">Cum functioneza GeoS?</h1>
+                <p class="text-generic">Este foarte simplu , esti la un click distanta</p>
+                <p class="title-generic general-color">Explorati Harta</p>
+                <p class="text-generic">Pe computer, dați clic oriunde pe hartă pentru a obține detalii despre o
+                    locație. Pe telefon sau tabletă, atingeți lung oriunde pe hartă pentru a obține detalii despre o
+                    locație.</p>
+                <p class="title-generic general-color">Raportați o problemă referitoare la date</p>
+                <p class="text-generic">Contribuiți la îmbunătățirea GeoS prin raportarea problemelor cu harta,
+                    cum ar fi detalii incorecte privind companiile, nume incorecte ale drumurilor sau alte erori.</p>
+                <p class="title-generic general-color">Deplasați harta</p>
+                <p class="text-generic">Pentru a vedea mai multe detalii pe hartă, măriți sau micșorați. Pe dispozitivul
+                    mobil, puteți folosi gesturi precum cele de rotire, înclinare și zoom, pentru a vă deplasa rapid în
+                    aplicația GeoS.</p>
+                <p class="title-generic general-color">Vedeți locația dvs. actuală</p>
+                <p class="text-generic">Pentru a căuta locații din apropiere și pentru a obține mai rapid indicații de
+                    orientare, centrați harta pe locația actuală.<br/>
+                    Dacă primiți o eroare similară cu „Locația dvs. nu poate fi stabilită” sau locația este în continuare incorectă, iată câteva soluții pe care le puteți încerca:<br/>
+                    - actualizați browserul (cum ar fi Chrome, Firefox sau Safari);<br/>
+                    - verificați și asigurați-vă că aveți o conexiune la internet puternică;<br/>
+                    - verificați încă o dată setările legate de permisiune folosind instrucțiunile de mai sus;<br/>
+                    - reporniți computerul.<br/>
+                </p>
+                <p class="title-generic general-color">Filtrați rezultatele</p>
+                <p class="text-generic">Dacă utilizați Geos în modul simplificat, nu puteți filtra rezultatele de căutare.<br/>
+                    Căutați un tip de locatie, poza sau tara.<br/>
+                    Alegeți un filtru:<br/>
+                   - dimensiune poza: căutați în funcție de dimensiunea fotografiilor;<br/>
+                   - mediul social: vedeți numai de pe anumite platforme poze în momentul respectiv;<br/>
+                   - informații despre fotografii, vedeți datele de check-in și locatia.
+                </p>
             </div>
-            <div class="filter">
-                <p class="general-color title-filter">Continent:</p>
-                <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
-                <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
-                <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
-                <label for="america_input" class="label-filter"><span class="checkbox-awesome"></span>America</label>
-                <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
-                <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
-                <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
-                <label for="australia_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Australia</label>
-                <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
-                <label for="antarctica_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Antarctica</label>
-                <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
-                <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
-            </div>
-            <div class="filter">
-                <p class="general-color title-filter">#Tag:</p>
-                <select name="select-h-tag" id="" class="select-filter">
-                    <option value="">Natura</option>
-                    <option value="">Acasa</option>
-                    <option value="">Old</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Map -->
-        <div class="col-md-12">
-            <div id="map" class="map"></div>
         </div>
     </div>
 </div>
-
-<!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="container">
@@ -140,12 +125,6 @@
         GeoS team M.G , D.I.A , V.A. .
     </div>
 </footer>
-<!-- Scripts -->
 <script src="js/general.js"></script>
-<!-- Map Scripts -->
-<script src="js/map.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxbxhB8ZEoPngod4jp8DAv-M8wNaNPhKQ&callback=initMap">
-</script>
 </body>
 </html>
