@@ -20,6 +20,7 @@ function CreateMarker(pos, title, icn) {
         map: googleMap,
         title: title
     });
+    return marker;
 }
 
 function Geolocation() {
@@ -48,22 +49,44 @@ function HandleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Browser-ul dumneavoastra nu suporta geolocation.');
     infoWindow.open(map);}
 
+
+function CreatePopUpMarker(marker, content) {
+    var contentString = "<img src=\"" + content + "\">"
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(googleMap, marker);
+    });
+}
+
 function GetJsonFlickr() {
     let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ca19a0ef7ff00d5aa27bc7916e83540&lat=47.151726&lon=27.587914&extras=geo&per_page=500&format=json&nojsoncallback=1";
-
+    
     fetch(url)
         .then(res => res.json())
         .then((data) => {
             for(var i = 0; i < data.photos.photo.length;i++) {
-                console.log(data.photos.photo[i].latitude,
-                           data.photos.photo[i].longitude);
                 var pos = new google.maps.LatLng(
                     data.photos.photo[i].latitude, 
                     data.photos.photo[i].longitude
                 );
                 var title = data.photos.photo[i].title;
                 var icn = iconsPath + 'photos-marker.png';
-                CreateMarker(pos, title, icn);
+                var marker = CreateMarker(pos, title, icn);
+                // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
+                var urlPhoto = "http://farm" + 
+                    data.photos.photo[i].farm +
+                    ".staticflickr.com/" +
+                    data.photos.photo[i].server +
+                    "/" +
+                    data.photos.photo[i].id +
+                    "_" +
+                    data.photos.photo[i].secret +
+                    "_n.jpg"
+                    
+                CreatePopUpMarker(marker, urlPhoto);
             }
         })
         .catch(err => { throw err });
