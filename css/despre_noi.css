@@ -1,0 +1,41 @@
+.main-info-container
+{
+    margin-top: 40px;
+}
+
+.personal-info-container
+{
+    border: 1px solid #42ab00;
+    width: 28%;
+    height: 450px;
+    margin: 0 32px;
+    padding: 0;
+    text-align: center;
+}
+
+.avatar
+{
+    width: 100%;
+    height: auto;
+}
+
+.person-name,
+.person-email
+{
+    color: #555f77;
+}
+
+.person-name
+{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.person-email
+{
+    font-size: 15px;
+    font-weight: 100;
+    font-style: italic;
+    margin-top: 0;
+}
