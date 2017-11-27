@@ -98,7 +98,7 @@ function setMapOnAll(map, markers) {
 }
 
 function CheckFilters(filterId) {
-    if (filterId == 2) {
+    if (filterId == "flickr_input") {
         var value = document.getElementById("flickr_input").checked;
         if (!value == true)
             GetJsonFlickr();
