@@ -43,47 +43,96 @@
         <!-- Filters -->
         <div class="col-xs-12 filter-container">
             <h1 class="general-color text-center">Harta GeoS</h1>
-            <h2 class="general-color">Filtre:</h2>
+            <h2 class="general-color">Filtre</h2>
             <div class="filter">
-                <p class="general-color title-filter">Sursa:</p>
-                <input type="checkbox" id="facebook_input" class="input-checkbox-filter" title="Ceva">
-                <label for="facebook_input" class="label-filter"><span class="checkbox-awesome"></span>Facebook</label>
-                <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
-                <label for="flickr_input" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
-                <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
-                <label for="instagram_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Instagram</label>
+                <div class="button-filter" id="source_filter"
+                     onclick="toggleNext('source_filter');toggleThis('source_filter')">Sursa
+                </div>
+                <div class="filter-toggle source-filter-toggle">
+                    <input type="checkbox" id="facebook_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="facebook_input" class="label-filter"><span class="checkbox-awesome"></span>500px</label>
+                    <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="flickr_input" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
+                    <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="instagram_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>Instagram</label>
+                </div>
             </div>
             <div class="filter">
-                <p class="general-color title-filter">Continent:</p>
-                <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
-                <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
-                <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
-                <label for="america_input" class="label-filter"><span class="checkbox-awesome"></span>America</label>
-                <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
-                <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
-                <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
-                <label for="australia_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Australia</label>
-                <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
-                <label for="antarctica_input" class="label-filter"><span
-                        class="checkbox-awesome"></span>Antarctica</label>
-                <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
-                <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
+                <div class="button-filter" id="continent_filter"
+                     onclick="toggleNext('continent_filter');toggleThis('continent_filter')">Continent
+                </div>
+                <div class="filter-toggle">
+                    <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
+                    <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
+                    <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="america_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>America</label>
+                    <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
+                    <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="australia_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>Australia</label>
+                    <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="antarctica_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>Antarctica</label>
+                    <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
+                </div>
             </div>
             <div class="filter">
-                <p class="general-color title-filter">#Tag:</p>
-                <select name="select-h-tag" id="" class="select-filter">
-                    <option value="">Natura</option>
-                    <option value="">Acasa</option>
-                    <option value="">Old</option>
-                </select>
+                <div class="button-filter" id="tag_filter" onclick="toggleNext('tag_filter');toggleThis('tag_filter')">
+                    #Tag
+                </div>
+                <div class="filter-toggle">
+                    <input type="checkbox" id="htag_natura" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_natura" class="label-filter"><span class="checkbox-awesome"></span>Natura</label>
+                    <input type="checkbox" id="htag_acasa" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_acasa" class="label-filter"><span class="checkbox-awesome"></span>Acasa</label>
+                    <input type="checkbox" id="htag_frumos" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_frumos" class="label-filter"><span class="checkbox-awesome"></span>Frumos</label>
+                    <input type="checkbox" id="htag_dragut" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_dragut" class="label-filter"><span class="checkbox-awesome"></span>Dragut</label>
+                    <input type="checkbox" id="htag_aglomerat" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_aglomerat" class="label-filter"><span class="checkbox-awesome"></span>Aglomerat</label>
+                    <input type="checkbox" id="htag_fum" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_fum" class="label-filter"><span class="checkbox-awesome"></span>Fum</label>
+                    <input type="checkbox" id="htag_bun" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_bun" class="label-filter"><span class="checkbox-awesome"></span>Bun</label>
+                    <input type="checkbox" id="htag_city" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_city" class="label-filter"><span class="checkbox-awesome"></span>City</label>
+                    <input type="checkbox" id="htag_gunoaie" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_gunoaie" class="label-filter"><span class="checkbox-awesome"></span>Gunoaie</label>
+                    <input type="checkbox" id="htag_aspect" class="input-checkbox-filter" title="Ceva">
+                    <label for="htag_aspect" class="label-filter"><span class="checkbox-awesome"></span>Aspect</label>
+
+                </div>
+            </div>
+            <div class="filter">
+                <div class="button-filter" id="resolution_filter"
+                     onclick="toggleNext('resolution_filter');toggleThis('resolution_filter')">Rezolutie
+                </div>
+                <div class="filter-toggle source-filter-toggle">
+                    <input type="checkbox" id="500x500" class="input-checkbox-filter" title="Ceva">
+                    <label for="500x500" class="label-filter"><span class="checkbox-awesome"></span>500px X 500px</label>
+                    <input type="checkbox" id="1000x1000" class="input-checkbox-filter" title="Ceva">
+                    <label for="1000x1000" class="label-filter"><span class="checkbox-awesome"></span>1000px X 1000px</label>
+                    <input type="checkbox" id="1200X1200" class="input-checkbox-filter" title="Ceva">
+                    <label for="1200X1200" class="label-filter"><span
+                            class="checkbox-awesome"></span>1200px X 1200px</label>
+                </div>
             </div>
         </div>
 
         <!-- Map -->
-        <div class="col-md-12">
-            <div id="map" class="map"></div>
+        <div class="col-xs-12">
+            <div class="map-container">
+                <div id="map" class="map"></div>
+                <div class="container-geolocation" id="container_geolocation">
+                    <input type="checkbox" id="geolocation" class="input-checkbox-filter" title="Ceva">
+                    <label for="geolocation" class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata locatia</label>
+                </div>
+            </div>
         </div>
     </div>
 </div>
