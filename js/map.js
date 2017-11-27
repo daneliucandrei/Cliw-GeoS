@@ -1,25 +1,32 @@
 var defaultPos = {lat: 47.151726, lng: 27.587914};
 var googleMap;
 var iconsPath = 'media/map/';
+var geolocationMarker = [];
+var flickrMarkers = [];
 
 function initMap() {
     googleMap = new google.maps.Map(document.getElementById('map'), {
         center: defaultPos,
         zoom: 6
     });
-    Geolocation();
-//    icn = iconsPath + 'photos-marker.png';
-//    CreateMarker(defaultPos, 'Fotografie', icn);
-    GetJsonFlickr();
 }
 
-function CreateMarker(pos, title, icn) {
+function CreateMarker(pos, title, icn, source) {
     var marker = new google.maps.Marker({
         position: pos,
         icon: icn,
         map: googleMap,
         title: title
     });
+    if (source == "geolocation") {
+        geolocationMarker.push(marker);
+    }
+    if (source == "flickr") {
+        flickrMarkers.push(marker);
+    }
+//    if (source == "instagram") {
+//        
+//    }
     return marker;
 }
 
@@ -31,24 +38,16 @@ function Geolocation() {
                 lng: position.coords.longitude
             };
             var icn = iconsPath + 'geolocation-marker.png';
-            CreateMarker(pos, 'Locatia dumneavoastra.', icn);
+            CreateMarker(pos, 'Locatia dumneavoastra.', icn, "geolocation");
             googleMap.setCenter(pos);
             googleMap.setZoom(15);
         }, function() {
-            HandleLocationError(true, infoWindow, map.getCenter());
+            alert("Error: Serviciul Geolocation a esuat. Acesta a fost blocat.");
         });
     } else {
-        HandleLocationError(false, infoWindow, map.getCenter());
+        alert("Error: Browser-ul dumneavoastra nu suporta geolocation.")
     }
 }
-
-function HandleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: Serviciul Geolocation a esuat.' :   
-        'Error: Browser-ul dumneavoastra nu suporta geolocation.');
-    infoWindow.open(map);}
-
 
 function CreatePopUpMarker(marker, content) {
     var contentString = "<img src=\"" + content + "\">"
@@ -77,7 +76,7 @@ function GetJsonFlickr() {
                 );
                 var title = data.photos.photo[i].title;
                 var icn = iconsPath + 'photos-marker.png';
-                var marker = CreateMarker(pos, title, icn);
+                var marker = CreateMarker(pos, title, icn, "flickr");
                 // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
                 var urlPhoto = "http://farm" + 
                     data.photos.photo[i].farm +
@@ -93,4 +92,28 @@ function GetJsonFlickr() {
             }
         })
         .catch(err => { throw err });
+}
+
+function setMapOnAll(map, markers) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+function CheckFilters(filterId) {
+    if (filterId == "geolocation") {
+        var value = document.getElementById("geolocation").checked;
+        if (!value == true)
+            Geolocation();
+        else
+            setMapOnAll(null, geolocationMarker);
+    }
+    
+    if (filterId == "flickr_input") {
+        var value = document.getElementById("flickr_input").checked;
+        if (!value == true)
+            GetJsonFlickr();
+        else
+            setMapOnAll(null, flickrMarkers);
+    }
 }
