@@ -1,4 +1,4 @@
-console.log('se incarca');
+//console.log('se incarca');
 var $ = document;
 function onHover(selector) {
     $.getElementsByClassName(selector)[0].setAttribute("src", "media/earth-spinning-rotating-animation-25.gif");
