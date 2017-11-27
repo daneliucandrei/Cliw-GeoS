@@ -1,0 +1,43 @@
+.map-home__img {
+    height:auto;
+    width:100%;
+    opacity:0.5;
+}
+.map-home-container {
+    position:relative;
+}
+.map-home-text-container {
+    position:absolute;
+    top:0;
+    margin-top:40px;
+    background: rgba(55,55,55,0.72);
+    padding:40px;
+    text-align: center;
+    left:50%;
+    transform:translateX(-50%);
+}
+.map-home__text {
+    padding:0;
+    font-size:50px;
+    color:white;
+    border-bottom: 1px solid white;
+    margin:0;
+}
+.map-home__text2 {
+    font-size:25px;
+    padding-top:20px;
+    color:white;
+}
+.home-img_1 {
+    height:100px;
+    text-align: center;
+    cursor:pointer;
+}
+.text-home-information--title {
+    font-size:20px;
+    padding:10px 0;
+}
+.text-home-information {
+    font-size:16px;
+    color:#2c2c2c;
+}

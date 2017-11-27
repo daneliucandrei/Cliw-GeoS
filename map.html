@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Web tutorials">
+    <title>GeoS photos, map , awesome!</title>
+    <link rel="shortcut icon" type="image/png" href="media/geos.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/map.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<div class="header-container">
+    <div class="container">
+        <div class="row">
+            <a href="/" class="logo-link">
+                <img src="media/logo_geos.png" alt="logo" class="logo-img">
+            </a>
+            <ul class="menu-desktop">
+                <li><a class="menu-desktop__child" href="index.html">Acasa</a></li>
+                <li><a class="menu-desktop__child" href="map.html">Harta</a></li>
+                <li>
+                    <a class="menu-desktop__child--submenu" href="#"> Despre <span
+                            class="icon-keyboard_arrow_down"> </span></a>
+                    <ul class="menu-desktop-submenu">
+                        <li><a href="#" class="menu-desktop-submenu__child">Termeni si conditii</a></li>
+                        <li><a href="#" class="menu-desktop-submenu__child">Despre noi</a></li>
+                        <li><a href="#" class="menu-desktop-submenu__child">Cum functioneaza?</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Filters -->
+        <div class="col-xs-12 filter-container">
+            <h1 class="general-color text-center">Harta GeoS</h1>
+            <h2 class="general-color">Filtre:</h2>
+            <div class="filter">
+                <p class="general-color title-filter">Sursa:</p>
+                <input type="checkbox" id="facebook_input" class="input-checkbox-filter" title="Ceva">
+                <label for="facebook_input" class="label-filter"><span class="checkbox-awesome"></span>Facebook</label>
+                <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
+                <label for="flickr_input" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
+                <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
+                <label for="instagram_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Instagram</label>
+            </div>
+            <div class="filter">
+                <p class="general-color title-filter">Continent:</p>
+                <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
+                <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
+                <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
+                <label for="america_input" class="label-filter"><span class="checkbox-awesome"></span>America</label>
+                <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
+                <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="australia_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Australia</label>
+                <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
+                <label for="antarctica_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Antarctica</label>
+                <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
+                <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
+            </div>
+            <div class="filter">
+                <p class="general-color title-filter">#Tag:</p>
+                <select name="select-h-tag" id="" class="select-filter">
+                    <option value="">Natura</option>
+                    <option value="">Acasa</option>
+                    <option value="">Old</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="col-xs-12">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12 footer-left">
+                    <ul class="footer-links">
+                        <li class="footer-link">
+                            <a href="/" class="footer-link__a home-icon generic-icon">Acasa</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#" class="footer-link__a question-icon generic-icon">Intrebari Frecvente</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#" class="footer-link__a assignment-icon generic-icon">Termeni si Conditii</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-links footer-links--right">
+                        <li class="footer-link">
+                            <a href="/" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#" class="footer-link__a about-icon generic-icon">Despre noi</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-xs-12 footer-right">
+                    <div class="logo-footer">
+                        <a href="/" class="logo-link--footer">
+                            <img src="media/logo_geos.png" alt="logo" class="logo-img--footer">
+                        </a>
+                    </div>
+                    <div class="social-media">
+                        <a href="www.facebook.com" class="social-media__link">
+                            <img src="media/facebook.png" alt="facebook" class="social-media__img">
+                        </a>
+                        <a href="www.twitter.com" class="social-media__link">
+                            <img src="media/twitter.png" alt="twitter" class="social-media__img">
+                        </a>
+                        <a href="www.google.com" class="social-media__link">
+                            <img src="media/googleplus.png" alt="google" class="social-media__img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        Copyright © 2017 GeoS, Inc. All rights reserved.
+        GeoS team M.G , D.I.A , V.A. .
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="js/general.js"></script>
+<!-- Map Scripts -->
+<script src="js/map.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxbxhB8ZEoPngod4jp8DAv-M8wNaNPhKQ&callback=initMap">
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/*=======================Footer========================*/
+.footer-container {
+    background-color:#42ab00;
+    padding:20px;
+    margin-top:80px;
+}
+.footer-left {
+    border-right:2px solid white;
+}
+.footer-link__a {
+    padding:5px 0;
+    font-size:20px;
+    color:white;
+    text-decoration:none;
+    display: block;
+}
+.home-icon::before {
+    content:'home';
+    font-size:20px;
+    font-family:'Material Icons';
+}
+.assignment-icon::before {
+    content:'assignment';
+    font-family: "Material Icons";
+}
+.question-icon::before {
+    content:'question_answer';
+    font-family: "Material Icons";
+    font-size:20px;
+}
+.generic-icon::before{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 2px;
+    margin-right:5px;
+}
+.pin-icon::before{
+    content:"pin_drop";
+    font-family:"Material Icons";
+    font-size: 30px;
+    color:white;
+}
+.explore-icon::before {
+    content:'explore';
+    font-family: "Material Icons";
+    font-size:20px;
+}
+.footer-pin {
+    display:inline-block;
+
+}
+.footer-links {
+    display:inline-block;
+    margin:15px 0;
+}
+.footer-links--right {
+    margin-right:30px;
+    margin-left:20px;
+    float:right;
+}
+.about-icon::before {
+    content: 'wb_incandescent';
+    font-family: "Material Icons";
+    font-size:20px;
+}
+.social-media__link {
+    text-decoration: none;
+    display:inline-block;
+}
+.social-media__img {
+    height:51px;
+    transition:0.3s;
+}
+.social-media__img:hover {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.footer-right {
+    text-align: center;
+}
+.logo-footer {
+    margin:15px 0 10px;
+}
+.logo-img--footer {
+    height: 56px;
+    border-radius: 25px;
+}
+.logo-link--footer {
+    padding:0 10px;
+    border-radius: 40px;
+    background-color: white;
+    display: inline-block;
+}
+.copyright {
+    background-color: #42ab00;
+    border-top:1px solid white;
+    padding: 10px;
+    font-size:15px;
+    font-weight: 300;
+    color:white;
+    text-align: center;
+}

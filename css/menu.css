@@ -1,0 +1,95 @@
+.header-container {
+    font-family: "Roboto",sans-serif;
+    border-bottom: 2px solid #42ab00;
+    translate:0.3s all;
+}
+.header-container-scroll {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+}
+.menu-desktop {
+    float:right;
+}
+.menu-desktop > li {
+    display:inline-block;
+    float:left;
+}
+.menu-desktop__child , .menu-desktop__child--submenu {
+    color: #2c2c2c;
+    font-size:20px;
+    padding:10px 20px;
+    cursor:pointer;
+    text-decoration: none;
+    display:block;
+}
+.menu-desktop__child:after ,.menu-desktop__child--submenu:after ,.menu-desktop-submenu__child:after {
+    content:' ';
+    margin-top:2px;
+    display:block;
+    background-color:#42ab00;
+    height:1px;
+    width:0;
+    transition: width 0.5s;
+}
+.menu-desktop__child:hover:after , .menu-desktop__child--submenu:hover:after ,.menu-desktop-submenu__child:hover:after {
+    width:80%;
+}
+.menu-desktop__child--submenu:hover + .menu-desktop-submenu {
+    height:124px;
+    border: 1px solid #fafbf8;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.menu-desktop-submenu {
+    height:0;
+    overflow: hidden;
+    position:absolute;
+    transition: height 0.3s;
+    z-index:10;
+    background-color:#f9f9f9;
+
+}
+.icon-keyboard_arrow_down:after {
+    content:" ";
+    height:20px;
+    width:20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.menu-desktop-submenu:hover {
+    height:124px;
+    border: 1px solid #fafbf8;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.menu-desktop-submenu li{
+    display:block;
+}
+.menu-desktop-submenu__child {
+    font-size:15px;
+    padding:10px 15px;
+    color: #2c2c2c;
+    text-decoration: none;
+    display: inline-block;
+}
+.menu-desktop-submenu__child:hover , .menu-desktop__child:hover ,.menu-desktop__child--submenu:hover {
+    color:#42ab00;
+}
+.logo-link {
+    display:inline-block;
+}
+.icon-keyboard_arrow_down {
+    border: solid #42ab00;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+.logo-img {
+    margin: 10px;
+    height: 56px;
+    border-radius: 25px;
+}
