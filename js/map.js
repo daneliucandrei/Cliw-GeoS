@@ -1,6 +1,7 @@
 var defaultPos = {lat: 47.151726, lng: 27.587914};
 var googleMap;
 var iconsPath = 'media/map/';
+var geolocationMarker = [];
 var flickrMarkers = [];
 
 function initMap() {
@@ -8,7 +9,6 @@ function initMap() {
         center: defaultPos,
         zoom: 6
     });
-    Geolocation();
 }
 
 function CreateMarker(pos, title, icn, source) {
@@ -18,6 +18,9 @@ function CreateMarker(pos, title, icn, source) {
         map: googleMap,
         title: title
     });
+    if (source == "geolocation") {
+        geolocationMarker.push(marker);
+    }
     if (source == "flickr") {
         flickrMarkers.push(marker);
     }
@@ -98,6 +101,14 @@ function setMapOnAll(map, markers) {
 }
 
 function CheckFilters(filterId) {
+    if (filterId == "geolocation") {
+        var value = document.getElementById("geolocation").checked;
+        if (!value == true)
+            Geolocation();
+        else
+            setMapOnAll(null, geolocationMarker);
+    }
+    
     if (filterId == "flickr_input") {
         var value = document.getElementById("flickr_input").checked;
         if (!value == true)
