@@ -1,0 +1,59 @@
+.main-info-container
+{
+    margin-top: 40px;
+}
+
+.personal-info-container
+{
+    border: 1px solid #42ab00;
+    width: 28%;
+    height: 470px;
+    margin: 0 32px;
+    padding: 0;
+    text-align: center;
+}
+
+.avatar
+{
+    width: 100%;
+    height: auto;
+}
+
+.person-name,
+.person-email
+{
+    color: #555f77;
+}
+
+.person-name
+{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.person-email
+{
+    font-size: 15px;
+    font-weight: 100;
+    font-style: italic;
+    margin-top: 0;
+}
+
+.details-button
+{
+    display:inline-block;
+    margin: 0;
+    padding:10px;
+    color:white;
+    background-color: #42ab00;
+    transition: 0.3s;
+    text-decoration: none;
+    height: 16px;
+    width: 20%;
+}
+
+.details-button:hover
+{
+    opacity:0.7;
+}
