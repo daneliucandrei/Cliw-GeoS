@@ -7,7 +7,7 @@
 {
     border: 1px solid #42ab00;
     width: 28%;
-    height: 450px;
+    height: 470px;
     margin: 0 32px;
     padding: 0;
     text-align: center;
@@ -38,4 +38,22 @@
     font-weight: 100;
     font-style: italic;
     margin-top: 0;
+}
+
+.details-button
+{
+    display:inline-block;
+    margin: 0;
+    padding:10px;
+    color:white;
+    background-color: #42ab00;
+    transition: 0.3s;
+    text-decoration: none;
+    height: 16px;
+    width: 20%;
+}
+
+.details-button:hover
+{
+    opacity:0.7;
 }
