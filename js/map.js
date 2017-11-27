@@ -62,7 +62,10 @@ function CreatePopUpMarker(marker, content) {
 }
 
 function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ca19a0ef7ff00d5aa27bc7916e83540&lat=47.151726&lon=27.587914&extras=geo&per_page=500&format=json&nojsoncallback=1";
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&" + "api_key=04e653c1466f48c6a06e68008f1a9cab&lat=47.151726&" + "lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&" + 
+    "format=json&nojsoncallback=1&" + 
+    "auth_token=72157687787809942-d92b07f3bfa28090&" + 
+    "api_sig=e5ad33695a39d11b4acb24cfc3c91507";
     
     fetch(url)
         .then(res => res.json())
