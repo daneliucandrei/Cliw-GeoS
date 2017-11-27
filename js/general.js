@@ -10,7 +10,7 @@ function offHover(selector) {
 
 window.onscroll = function () {
     var header = $.getElementsByClassName('header-container')[0];
-    if (window.scrollY > 150) {
+    if (window.scrollY > 160) {
         if (!header.classList.contains('header-container-scroll'))
             header.classList += " header-container-scroll";
     }
@@ -19,23 +19,22 @@ window.onscroll = function () {
     }
 }
 
-function toggleNext(thisId) {
-   var next= $.getElementById(thisId).nextElementSibling;
-   if(!next.classList.contains('filter-toggle--active')) {
-       next.classList+= " filter-toggle--active";
+function toggleElement(thisId,classToAdd) {
+   var $this= $.getElementById(thisId);
+   if(!$this.classList.contains(classToAdd)) {
+       $this.classList+= " "+classToAdd;
    }
    else {
-       next.classList.remove("filter-toggle--active");
+       $this.classList.remove(classToAdd);
    }
 }
-function toggleThis(thisId){
+function toggleThis(thisId,classToAdd){
     var $this= $.getElementById(thisId);
-    console.log($this.classList);
-    if(!$this.classList.contains('button-filter--active')) {
-        $this.classList+= " button-filter--active";
+    if(!$this.classList.contains(classToAdd)) {
+        $this.classList+= " "+classToAdd;
     }
     else {
-        $this.classList.remove("button-filter--active");
+        $this.classList.remove(classToAdd);
     }
 
 }

@@ -52,12 +52,10 @@
 .footer-links {
     display:inline-block;
     margin:15px 0;
+    width:50%;
+    float:left;
 }
-.footer-links--right {
-    margin-right:30px;
-    margin-left:20px;
-    float:right;
-}
+
 .about-icon::before {
     content: 'wb_incandescent';
     font-family: "Material Icons";
@@ -100,4 +98,16 @@
     font-weight: 300;
     color:white;
     text-align: center;
+}
+@media (max-width:992px) {
+    .footer-links {
+        width:100%;
+    }
+}
+@media (max-width: 767px) {
+    .footer-left {
+        border-right: 0;
+        border-bottom:2px solid #ffffff;
+    }
+
 }

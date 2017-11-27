@@ -25,16 +25,30 @@
                 <li><a class="menu-desktop__child" href="/">Acasa</a></li>
                 <li><a class="menu-desktop__child" href="/map.html">Harta</a></li>
                 <li>
-                    <a class="menu-desktop__child--submenu" href="#"> Despre <span
+                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html"> Despre <span
                             class="icon-keyboard_arrow_down"> </span></a>
                     <ul class="menu-desktop-submenu">
-                        <li><a href="#" class="menu-desktop-submenu__child">Termeni si conditii</a></li>
                         <li><a href="#" class="menu-desktop-submenu__child">Despre noi</a></li>
-                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </div>
+    </div>
+</div>
+<div class="menu-mobile-container">
+    <a href="/" class="logo-link">
+        <img src="media/logo_geos.png" alt="logo" class="logo-img">
+    </a>
+    <div class="menu-icon" id="menu-icon"  onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
+    <div class="menu-mobile" id="menu_mobile">
+        <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
+        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
+        <div><a href="#" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum functioneaza?</a></div>
+
+
     </div>
 </div>
 <!-- Page Content -->
@@ -45,23 +59,26 @@
             <h1 class="general-color text-center">Harta GeoS</h1>
             <h2 class="general-color">Filtre</h2>
             <div class="filter">
-                <div class="button-filter" id="source_filter" onclick="toggleNext('source_filter');toggleThis('source_filter')">Sursa
+                <div class="button-filter button-filter--active" id="source_filter"
+                     onclick="toggleElement('source_filter_1','filter-toggle--active');toggleThis('source_filter','button-filter--active')">
+                    Sursa
                 </div>
-                <div class="filter-toggle source-filter-toggle">
+                <div class="filter-toggle source-filter-toggle filter-toggle--active" id="source_filter_1">
                     <input type="checkbox" id="500px_input" class="input-checkbox-filter" title="Ceva">
                     <label for="500px_input" class="label-filter"><span class="checkbox-awesome"></span>500px</label>
                     <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="flickr_input" onclick="CheckFilters('flickr_input')" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
+                    <label for="flickr_input" onclick="CheckFilters('flickr_input')" class="label-filter"><span
+                            class="checkbox-awesome"></span>Flickr</label>
                     <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
                     <label for="instagram_input" class="label-filter"><span
                             class="checkbox-awesome"></span>Instagram</label>
                 </div>
             </div>
             <div class="filter">
-                <div class="button-filter" id="continent_filter"
-                     onclick="toggleNext('continent_filter');toggleThis('continent_filter')">Continent
+                <div class="button-filter button-filter--active" id="continent_filter"
+                     onclick="toggleElement('continent_filter_1','filter-toggle--active');toggleThis('continent_filter','button-filter--active')">Continent
                 </div>
-                <div class="filter-toggle">
+                <div class="filter-toggle filter-toggle--active" id="continent_filter_1">
                     <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
                     <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
                     <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
@@ -80,10 +97,11 @@
                 </div>
             </div>
             <div class="filter">
-                <div class="button-filter" id="tag_filter" onclick="toggleNext('tag_filter');toggleThis('tag_filter')">
+                <div class="button-filter button-filter--active" id="tag_filter"
+                     onclick="toggleElement('tag_filter_1','filter-toggle--active');toggleThis('tag_filter','button-filter--active')"">
                     #Tag
                 </div>
-                <div class="filter-toggle">
+                <div class="filter-toggle filter-toggle--active" id="tag_filter_1">
                     <input type="checkbox" id="htag_natura" class="input-checkbox-filter" title="Ceva">
                     <label for="htag_natura" class="label-filter"><span class="checkbox-awesome"></span>Natura</label>
                     <input type="checkbox" id="htag_acasa" class="input-checkbox-filter" title="Ceva">
@@ -93,7 +111,8 @@
                     <input type="checkbox" id="htag_dragut" class="input-checkbox-filter" title="Ceva">
                     <label for="htag_dragut" class="label-filter"><span class="checkbox-awesome"></span>Dragut</label>
                     <input type="checkbox" id="htag_aglomerat" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_aglomerat" class="label-filter"><span class="checkbox-awesome"></span>Aglomerat</label>
+                    <label for="htag_aglomerat" class="label-filter"><span
+                            class="checkbox-awesome"></span>Aglomerat</label>
                     <input type="checkbox" id="htag_fum" class="input-checkbox-filter" title="Ceva">
                     <label for="htag_fum" class="label-filter"><span class="checkbox-awesome"></span>Fum</label>
                     <input type="checkbox" id="htag_bun" class="input-checkbox-filter" title="Ceva">
@@ -108,14 +127,17 @@
                 </div>
             </div>
             <div class="filter">
-                <div class="button-filter" id="resolution_filter"
-                     onclick="toggleNext('resolution_filter');toggleThis('resolution_filter')">Rezolutie
+                <div class="button-filter button-filter--active" id="resolution_filter"
+                     onclick="toggleElement('resolution_filter_1','filter-toggle--active');toggleThis('resolution_filter','button-filter--active')">
+                    Rezolutie
                 </div>
-                <div class="filter-toggle source-filter-toggle">
+                <div class="filter-toggle filter-toggle--active" id="resolution_filter_1">
                     <input type="checkbox" id="500x500" class="input-checkbox-filter" title="Ceva">
-                    <label for="500x500" class="label-filter"><span class="checkbox-awesome"></span>500px X 500px</label>
+                    <label for="500x500" class="label-filter"><span class="checkbox-awesome"></span>500px X
+                        500px</label>
                     <input type="checkbox" id="1000x1000" class="input-checkbox-filter" title="Ceva">
-                    <label for="1000x1000" class="label-filter"><span class="checkbox-awesome"></span>1000px X 1000px</label>
+                    <label for="1000x1000" class="label-filter"><span class="checkbox-awesome"></span>1000px X
+                        1000px</label>
                     <input type="checkbox" id="1200X1200" class="input-checkbox-filter" title="Ceva">
                     <label for="1200X1200" class="label-filter"><span
                             class="checkbox-awesome"></span>1200px X 1200px</label>
@@ -129,7 +151,9 @@
                 <div id="map" class="map"></div>
                 <div class="container-geolocation" id="container_geolocation">
                     <input type="checkbox" id="geolocation" class="input-checkbox-filter" title="Ceva">
-                    <label for="geolocation" onclick="CheckFilters('geolocation')" class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata locatia</label>
+                    <label for="geolocation" onclick="CheckFilters('geolocation')"
+                           class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata
+                        locatia</label>
                 </div>
             </div>
         </div>
