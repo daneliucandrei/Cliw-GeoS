@@ -66,7 +66,6 @@ function GetJsonFlickr() {
     fetch(url)
         .then(res => res.json())
         .then((data) => {
-            console.log(data);
             for(var i = 0; i < data.photos.photo.length;i++) {
                 var pos = new google.maps.LatLng(
                     data.photos.photo[i].latitude, 
