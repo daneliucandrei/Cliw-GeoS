@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,9 @@
     <link rel="shortcut icon" type="image/png" href="media/geos.ico"/>
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <link rel="stylesheet" type="text/css" href="css/cum_functioneaza.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/despre_noi.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -39,54 +40,71 @@
     <a href="/" class="logo-link">
         <img src="media/logo_geos.png" alt="logo" class="logo-img">
     </a>
-    <div class="menu-icon" id="menu-icon"  onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
+    <div class="menu-icon" id="menu-icon"
+         onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
     <div class="menu-mobile" id="menu_mobile">
         <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
         <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
         <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
-        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum functioneaza?</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum
+            functioneaza?</a></div>
 
 
     </div>
 </div>
-<div class="cum-functioneaza">
-    <div class="container">
-        <div class="line">
-            <div class="desktop-full">
-                <h1 class="general-color">Cum functioneza GeoS?</h1>
-                <p class="text-generic">Este foarte simplu , esti la un click distanta</p>
-                <p class="title-generic general-color">Explorati Harta</p>
-                <p class="text-generic">Pe computer, dați clic oriunde pe hartă pentru a obține detalii despre o
-                    locație. Pe telefon sau tabletă, atingeți lung oriunde pe hartă pentru a obține detalii despre o
-                    locație.</p>
-                <p class="title-generic general-color">Raportați o problemă referitoare la date</p>
-                <p class="text-generic">Contribuiți la îmbunătățirea GeoS prin raportarea problemelor cu harta,
-                    cum ar fi detalii incorecte privind companiile, nume incorecte ale drumurilor sau alte erori.</p>
-                <p class="title-generic general-color">Deplasați harta</p>
-                <p class="text-generic">Pentru a vedea mai multe detalii pe hartă, măriți sau micșorați. Pe dispozitivul
-                    mobil, puteți folosi gesturi precum cele de rotire, înclinare și zoom, pentru a vă deplasa rapid în
-                    aplicația GeoS.</p>
-                <p class="title-generic general-color">Vedeți locația dvs. actuală</p>
-                <p class="text-generic">Pentru a căuta locații din apropiere și pentru a obține mai rapid indicații de
-                    orientare, centrați harta pe locația actuală.<br/>
-                    Dacă primiți o eroare similară cu „Locația dvs. nu poate fi stabilită” sau locația este în continuare incorectă, iată câteva soluții pe care le puteți încerca:<br/>
-                    - actualizați browserul (cum ar fi Chrome, Firefox sau Safari);<br/>
-                    - verificați și asigurați-vă că aveți o conexiune la internet puternică;<br/>
-                    - verificați încă o dată setările legate de permisiune folosind instrucțiunile de mai sus;<br/>
-                    - reporniți computerul.<br/>
-                </p>
-                <p class="title-generic general-color">Filtrați rezultatele</p>
-                <p class="text-generic">Dacă utilizați Geos în modul simplificat, nu puteți filtra rezultatele de căutare.<br/>
-                    Căutați un tip de locatie, poza sau tara.<br/>
-                    Alegeți un filtru:<br/>
-                   - dimensiune poza: căutați în funcție de dimensiunea fotografiilor;<br/>
-                   - mediul social: vedeți numai de pe anumite platforme poze în momentul respectiv;<br/>
-                   - informații despre fotografii, vedeți datele de check-in și locatia.
-                </p>
+<div class="container main-info-container">
+    <div class="line">
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/andrei.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Ilie-Andrei Daneliuc
+                    </div>
+                    <div class="text-home-information">
+                        daneliucilieandrei@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
+            </div>
+        </div>
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/gabi.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Miron Gabriel
+                    </div>
+                    <div class="text-home-information">
+                        miron.gabriel2015@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
+            </div>
+        </div>
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/alex.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Alexandru Voaideș
+                    </div>
+                    <div class="text-home-information">
+                        voaides.alex@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="container">
@@ -138,6 +156,7 @@
         GeoS team M.G , D.I.A , V.A. .
     </div>
 </footer>
+<!-- Scripts -->
 <script src="js/general.js"></script>
 </body>
 </html>
