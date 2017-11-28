@@ -3,6 +3,7 @@ var googleMap;
 var iconsPath = 'media/map/';
 var geolocationMarker = [];
 var flickrMarkers = [];
+var instagramMarkers = [];
 
 function initMap() {
     googleMap = new google.maps.Map(document.getElementById('map'), {
@@ -50,7 +51,7 @@ function Geolocation() {
 }
 
 function CreatePopUpMarker(marker, content) {
-    var contentString = "<img src=\"" + content + "\">"
+    var contentString = "<img src=\"" + content + "\">";
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });

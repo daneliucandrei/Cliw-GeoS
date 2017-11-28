@@ -37,3 +37,9 @@
     font-style: italic;
     margin-top: 0;
 }
+@media(max-width:1000px) {
+    .text-email {
+        font-size:12px;
+        word-wrap: break-word;
+    }
+}

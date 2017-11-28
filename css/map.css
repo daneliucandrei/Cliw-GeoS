@@ -154,11 +154,24 @@
 .legendTitle h3 img {
     width: 25px;
     height: auto;
-    margin-bottom: 5px;
+    display:inline-block;
 }
 
 .display-inline {
     display: inline-block;
+}
+.margin-bottom-s {
+    display:inline-block;
+    margin-left:4px;
+    position: relative;
+    bottom: 8px;
+}
+.legend-text{
+    display:inline-block;
+    margin-left:4px;
+    position: relative;
+    font-size:24px;
+    bottom: 4px;
 }
 
 .font-size-20px {
