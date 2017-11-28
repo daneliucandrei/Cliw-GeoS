@@ -61,14 +61,12 @@ function CreatePopUpMarker(marker, content) {
 }
 
 function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&" + "api_key=04e653c1466f48c6a06e68008f1a9cab&lat=47.151726&" + "lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&" + 
-    "format=json&nojsoncallback=1&" + 
-    "auth_token=72157687787809942-d92b07f3bfa28090&" + 
-    "api_sig=e5ad33695a39d11b4acb24cfc3c91507";
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=47510a816a4dcdf3de88893c6d937f27&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
     
     fetch(url)
         .then(res => res.json())
         .then((data) => {
+            console.log(data);
             for(var i = 0; i < data.photos.photo.length;i++) {
                 var pos = new google.maps.LatLng(
                     data.photos.photo[i].latitude, 
@@ -103,17 +101,29 @@ function setMapOnAll(map, markers) {
 function CheckFilters(filterId) {
     if (filterId == "geolocation") {
         var value = document.getElementById("geolocation").checked;
-        if (!value == true)
+        if (!value == true){
             Geolocation();
-        else
+            var legend = document.getElementById("geolocation_legend");
+            legend.classList.remove('hidden-legend-uncecked');
+        }
+        else {
             setMapOnAll(null, geolocationMarker);
+            var legend = document.getElementById("geolocation_legend");
+            legend.classList.add('hidden-legend-uncecked');
+        }
     }
     
     if (filterId == "flickr_input") {
         var value = document.getElementById("flickr_input").checked;
-        if (!value == true)
+        if (!value == true) {
             GetJsonFlickr();
-        else
+            var legend = document.getElementById("flickr_legend");
+            legend.classList.remove('hidden-legend-uncecked');
+        }
+        else {
             setMapOnAll(null, flickrMarkers);
+            var legend = document.getElementById("flickr_legend");
+            legend.classList.add('hidden-legend-uncecked');
+        }
     }
 }

@@ -98,7 +98,7 @@
             </div>
             <div class="filter">
                 <div class="button-filter button-filter--active" id="tag_filter"
-                     onclick="toggleElement('tag_filter_1','filter-toggle--active');toggleThis('tag_filter','button-filter--active')"">
+                     onclick="toggleElement('tag_filter_1','filter-toggle--active');toggleThis('tag_filter','button-filter--active')">
                     #Tag
                 </div>
                 <div class="filter-toggle filter-toggle--active" id="tag_filter_1">
@@ -155,6 +155,23 @@
                            class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata
                         locatia</label>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Legenda -->
+        <div class="col-xs-12 legendTitle">
+            <h3> <img src="media/map/map-legend.png"> Legenda</h3>
+            <div class="col-xs-12">
+                <span id="geolocation_legend" class="display-inline font-size-20px hidden-legend-uncecked">
+                    <img src="media/map/geolocation-marker.png" style="margin-right: 12px;" class="legend display-inline">
+                    Locatia dumneavoastra.
+                </span>
+            </div>
+            <div class="col-xs-12">
+                <span id="flickr_legend" class="display-inline font-size-20px hidden-legend-uncecked">
+                    <img src="media/map/photos-marker.png" style="margin-right: 12px;" class="legend display-inline">
+                    Imagini de pe Flickr.
+                </span>
             </div>
         </div>
     </div>
