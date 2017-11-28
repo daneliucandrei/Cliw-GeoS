@@ -38,17 +38,17 @@ ul , ol {
     clear: both;
 }
 
-.row {
+.line {
     margin-right: -15px;
     margin-left: -15px;
 }
 
-.row:before, .row:after {
+.line:before, .line:after {
     content: " ";
     display: table;
 }
 
-.row:after {
+.line:after {
     clear: both;
 }
 
@@ -70,7 +70,7 @@ ul , ol {
     }
 }
 
-.col-sm-4,.col-xs-6,.col-sm-6,.col-xs-12, .col-sm-12{
+.desktop-3column,.desktop-half,.general-half,.general-full, .desktop-full{
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -78,30 +78,30 @@ ul , ol {
     box-sizing: border-box;
 }
 
-.col-xs-6,.col-xs-12 {
+.desktop-half,.general-full {
     float: left;
 }
 
-.col-xs-6 {
+.desktop-half {
     width: 50%;
 }
 
-.col-xs-12 {
+.general-full {
     width: 100%;
 }
 
 @media (min-width: 768px) {
-    .col-sm-4,.col-sm-6 ,.col-sm-12 {
+    .desktop-3column,.general-half ,.desktop-full {
         float: left;
     }
 
-    .col-sm-4 {
+    .desktop-3column {
         width: 33.33333%;
     }
-    .col-sm-6 {
+    .general-half {
         width:50%;
     }
-    .col-sm-12 {
+    .desktop-full {
         width: 100%;
     }
 }
