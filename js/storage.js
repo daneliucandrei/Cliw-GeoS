@@ -21,6 +21,21 @@ var mapFilter = {
     values: {}, add: function () {
     }
 };
+var ApplyFilter = {
+    category: {
+        'category_natura':'Nature',
+        'category_film' :'Film',
+        'category_mancare':'Food'
+    },
+    image_size : {
+        '440x440': 440,
+        '200x200':200
+    }
+}
+var dataFilter = {};
+dataFilter.rpp=50;
+dataFilter.only = 'Nudes,Bike,';
+dataFilter.resolution=[440];
 mapFilter.add = function (key, value) {
     this.values[key] = value;
     return this;
@@ -39,29 +54,47 @@ function initializeMapFilter() {
     else {
         console.log('cookie');
         mapFilter.values = read_cookie(appName);
-        console.log(mapFilter.values);
+        //console.log(mapFilter.values);
         for (var key in mapFilter.values) {
             if (mapFilter.values[key]) {
                 (document.getElementById(key).checked = true);
+                console.log(ApplyFilter.category['category_film']);
+                if( typeof ApplyFilter.category[key] !== 'undefined') {
+                    dataFilter.only+= ApplyFilter.category[key] + ',';
+                }
+
             }
+        }
+        if(mapFilter.values['500px_input']) {
+            window.onload = function () {createMap500px(dataFilter,true)}
         }
     }
 }
 
 initializeMapFilter();
 
-function watch(list) {
+function watchStorage(list) {
     var key;
     for (key in list) {
         if (typeof(list[key].id) === "string") {
             list[key].onclick = function () {
-                console.log(this.checked);
                 mapFilter.values[this.id] = this.checked;
                 push_cookie(appName, mapFilter.values);
+                if( typeof ApplyFilter.category[key] !== 'undefined') {
+                    dataFilter.only+= ApplyFilter.category[key] + ',';
+                }
+                if(this.id==='500px_input') {
+                   console.log(this.checked);
+                    if(this.checked) {
+                        createMap500px(dataFilter,true);
+                    }
+                    else {
+                        createMap500px(dataFilter,false);
+                    }
+                }
             };
         }
     }
 }
 
-watch(list);
-console.log(mapFilter);
+watchStorage(list);
