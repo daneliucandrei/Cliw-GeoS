@@ -31,9 +31,10 @@ var ApplyFilter = {
         '5_animals': 'Animals',
         '5_fashion': 'Fashion',
         '5_nude': 'Nude',
-        '5_night': 'Night',
         '5_people': 'People',
-        '5_travel': 'Travel'
+        '5_travel': 'Travel',
+        '5_city': 'City',
+        '5_night':'Night'
 
 
     },
@@ -103,7 +104,7 @@ function watchStorage(list) {
                     }
                 }
                 if (mapFilter.values['500px_input']) {
-                    dataFilter.only!=='' ? createMap500px(dataFilter, true) : createMap500px(dataFilter, false);
+                    createMap500px(dataFilter, true);
                     dataFilter.only='';
                 }
                 if (this.id === '500px_input') {
