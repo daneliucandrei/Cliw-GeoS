@@ -2,113 +2,161 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GeoS photos, map , awesome!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free Web tutorials">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <title>GeoS photos, map , awesome!</title>
+    <link rel="shortcut icon" type="image/png" href="media/geos.ico"/>
     <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/despre_noi.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="header-container">
-        <div class="container">
-            <div class="row">
-                <a href="/" class="logo-link">
-                    <img src="media/logo_geos.png" alt="logo" class="logo-img">
-                </a>
-                <ul class="menu-desktop">
-                    <li><a class="menu-desktop__child" href="index.html">Acasa</a></li>
-                    <li><a class="menu-desktop__child" href="map.html">Harta</a></li>
-                    <li>
-                        <a class="menu-desktop__child--submenu" href="#"> Despre <span
-                                class="icon-keyboard_arrow_down"> </span></a>
-                        <ul class="menu-desktop-submenu">
-                            <li><a href="#" class="menu-desktop-submenu__child">Termeni si conditii</a></li>
-                            <li><a href="#" class="menu-desktop-submenu__child">Despre noi</a></li>
-                            <li><a href="#" class="menu-desktop-submenu__child">Cum functioneaza?</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+<div class="header-container">
+    <div class="container">
+        <div class="line">
+            <a href="/" class="logo-link">
+                <img src="media/logo_geos.png" alt="logo" class="logo-img">
+            </a>
+            <ul class="menu-desktop">
+                <li><a class="menu-desktop__child" href="/">Acasa</a></li>
+                <li><a class="menu-desktop__child" href="/map.html">Harta</a></li>
+                <li>
+                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html"> Despre <span
+                            class="icon-keyboard_arrow_down"> </span></a>
+                    <ul class="menu-desktop-submenu">
+                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child">Despre noi</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="container main-info-container">
-        <div class="row">
-            <div class="col-xs-12 personal-info-container">
-                <img class="avatar" src="media/andrei.jpg" alt="Default Avatar">
-                <h3 class="person-name">Ilie-Andrei Daneliuc</h3>
-                <h3 class="person-email">daneliucilieandrei@gmail.com</h3>
-                <a href="#" class="details-button">Detalii</a>
-            </div>
-            <div class="col-xs-12 personal-info-container">
-                <img class="avatar" src="media/gabi.jpg" alt="Default Avatar">
-                <h3 class="person-name">Gabriel Miron</h3>
-                <h3 class="person-email">miron.gabriel2015@gmail.com</h3>
-                <a href="#" class="details-button">Detalii</a>
-            </div>
-            <div class="col-xs-12 personal-info-container">
-                <img class="avatar" src="media/alex.jpg" alt="Default Avatar">
-                <h3 class="person-name">Alexandru Voaideș</h3>
-                <h3 class="person-email">voaides.alex@gmail.com</h3>
-                <a href="#" class="details-button">Detalii</a>
-            </div>
-        </div>
+</div>
+<div class="menu-mobile-container">
+    <a href="/" class="logo-link">
+        <img src="media/logo_geos.png" alt="logo" class="logo-img">
+    </a>
+    <div class="menu-icon" id="menu-icon"
+         onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
+    <div class="menu-mobile" id="menu_mobile">
+        <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
+        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
+        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum
+            functioneaza?</a></div>
+
+
     </div>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-12 footer-left">
-                        <ul class="footer-links">
-                            <li class="footer-link">
-                                <a href="/" class="footer-link__a home-icon generic-icon">Acasa</a>
-                            </li>
-                            <li class="footer-link">
-                                <a href="#" class="footer-link__a question-icon generic-icon">Intrebari Frecvente</a>
-                            </li>
-                            <li class="footer-link">
-                                <a href="#" class="footer-link__a assignment-icon generic-icon">Termeni si Conditii</a>
-                            </li>
-                        </ul>
-                        <ul class="footer-links footer-links--right">
-                            <li class="footer-link">
-                                <a href="/" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
-                            </li>
-                            <li class="footer-link">
-                                <a href="#" class="footer-link__a about-icon generic-icon">Despre noi</a>
-                            </li>
-                        </ul>
+</div>
+<div class="container main-info-container">
+    <div class="line">
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/andrei.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Ilie-Andrei Daneliuc
                     </div>
-                    <div class="col-sm-6 col-xs-12 footer-right">
-                        <div class="logo-footer">
-                            <a href="/" class="logo-link--footer">
-                                <img src="media/logo_geos.png" alt="logo" class="logo-img--footer">
-                            </a>
-                        </div>
-                        <div class="social-media">
-                            <a href="www.facebook.com" class="social-media__link">
-                                <img src="media/facebook.png" alt="facebook" class="social-media__img">
-                            </a>
-                            <a href="www.twitter.com" class="social-media__link">
-                                <img src="media/twitter.png" alt="twitter" class="social-media__img">
-                            </a>
-                            <a href="www.google.com" class="social-media__link">
-                                <img src="media/googleplus.png" alt="google" class="social-media__img">
-                            </a>
-                        </div>
+                    <div class="text-home-information text-email">
+                        daneliucilieandrei@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
+            </div>
+        </div>
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/gabi.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Miron Gabriel
+                    </div>
+                    <div class="text-home-information text-email">
+                        miron.gabriel2015@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
+            </div>
+        </div>
+        <div class="general-full desktop-3column">
+            <div class="general-box clearfix">
+                <div class="general-full">
+                    <img class="avatar" src="media/alex.jpg" alt="Default Avatar">
+                </div>
+                <div class="general-full">
+                    <div class="text-home-information--title general-color">
+                        Alexandru Voaideș
+                    </div>
+                    <div class="text-home-information text-email">
+                        voaides.alex@gmail.com
+                    </div>
+                    <a href="#" class="show-more-button">Afla mai multe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="container">
+            <div class="line">
+                <div class="general-half general-full footer-left">
+                    <ul class="footer-links">
+                        <li class="footer-link">
+                            <a href="/" class="footer-link__a home-icon generic-icon">Acasa</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#" class="footer-link__a question-icon generic-icon">Intrebari Frecvente</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#" class="footer-link__a assignment-icon generic-icon">Termeni si Conditii</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-links footer-links--right">
+                        <li class="footer-link">
+                            <a href="/map.html" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="/despre_noi.html" class="footer-link__a about-icon generic-icon">Despre noi</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="general-half general-full footer-right">
+                    <div class="logo-footer">
+                        <a href="/" class="logo-link--footer">
+                            <img src="media/logo_geos.png" alt="logo" class="logo-img--footer">
+                        </a>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com" class="social-media__link icon-transition">
+                            <img src="media/facebook.png" alt="facebook" class="social-media__img">
+                        </a>
+                        <a href="https://www.twitter.com" class="social-media__link icon-transition">
+                            <img src="media/twitter.png" alt="twitter" class="social-media__img">
+                        </a>
+                        <a href="https://www.google.com" class="social-media__link icon-transition">
+                            <img src="media/googleplus.png" alt="google" class="social-media__img">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            Copyright © 2017 GeoS, Inc. All rights reserved.
-            GeoS team M.G , D.I.A , V.A. .
-        </div>
-    </footer>
-    <!-- Scripts -->
-    <script src="js/general.js"></script>
+    </div>
+    <div class="copyright">
+        Copyright © 2017 GeoS, Inc. All rights reserved.
+        GeoS team M.G , D.I.A , V.A. .
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="js/general.js"></script>
 </body>
 </html>

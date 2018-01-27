@@ -17,7 +17,7 @@
 <!-- Header -->
 <div class="header-container">
     <div class="container">
-        <div class="row">
+        <div class="line">
             <a href="/" class="logo-link">
                 <img src="media/logo_geos.png" alt="logo" class="logo-img">
             </a>
@@ -25,123 +25,179 @@
                 <li><a class="menu-desktop__child" href="/">Acasa</a></li>
                 <li><a class="menu-desktop__child" href="/map.html">Harta</a></li>
                 <li>
-                    <a class="menu-desktop__child--submenu" href="#"> Despre <span
+                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html"> Despre <span
                             class="icon-keyboard_arrow_down"> </span></a>
                     <ul class="menu-desktop-submenu">
-                        <li><a href="#" class="menu-desktop-submenu__child">Termeni si conditii</a></li>
-                        <li><a href="#" class="menu-desktop-submenu__child">Despre noi</a></li>
-                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a></li>
+                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child">Despre noi</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </div>
+<div class="menu-mobile-container">
+    <a href="/" class="logo-link">
+        <img src="media/logo_geos.png" alt="logo" class="logo-img">
+    </a>
+    <div class="menu-icon" id="menu-icon"
+         onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
+    <div class="menu-mobile" id="menu_mobile">
+        <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
+        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
+        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum
+            functioneaza?</a></div>
+
+
+    </div>
+</div>
 <!-- Page Content -->
 <div class="container">
-    <div class="row">
+    <div class="line">
         <!-- Filters -->
-        <div class="col-xs-12 filter-container">
+        <div class="general-full filter-container">
             <h1 class="general-color text-center">Harta GeoS</h1>
-            <h2 class="general-color">Filtre</h2>
-            <div class="filter">
-                <div class="button-filter" id="source_filter" onclick="toggleNext('source_filter');toggleThis('source_filter')">Sursa
-                </div>
-                <div class="filter-toggle source-filter-toggle">
-                    <input type="checkbox" id="500px_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="500px_input" class="label-filter"><span class="checkbox-awesome"></span>500px</label>
-                    <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="flickr_input" onclick="CheckFilters('flickr_input')" class="label-filter"><span class="checkbox-awesome"></span>Flickr</label>
-                    <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="instagram_input" class="label-filter"><span
-                            class="checkbox-awesome"></span>Instagram</label>
-                </div>
+        </div>
+    </div>
+</div>
+<div class="container--for-map container">
+    <div class="filter--container">
+        <h2 class="general-color">Filtre</h2>
+        <div class="filter">
+            <div class="button-filter button-filter--active" id="source_filter"
+                 onclick="toggleElement('source_filter_1','filter-toggle--active');toggleThis('source_filter','button-filter--active')">
+                Sursa
             </div>
-            <div class="filter">
-                <div class="button-filter" id="continent_filter"
-                     onclick="toggleNext('continent_filter');toggleThis('continent_filter')">Continent
-                </div>
-                <div class="filter-toggle">
-                    <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
-                    <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
-                    <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="america_input" class="label-filter"><span
-                            class="checkbox-awesome"></span>America</label>
-                    <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
-                    <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="australia_input" class="label-filter"><span
-                            class="checkbox-awesome"></span>Australia</label>
-                    <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="antarctica_input" class="label-filter"><span
-                            class="checkbox-awesome"></span>Antarctica</label>
-                    <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
-                </div>
-            </div>
-            <div class="filter">
-                <div class="button-filter" id="tag_filter" onclick="toggleNext('tag_filter');toggleThis('tag_filter')">
-                    #Tag
-                </div>
-                <div class="filter-toggle">
-                    <input type="checkbox" id="htag_natura" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_natura" class="label-filter"><span class="checkbox-awesome"></span>Natura</label>
-                    <input type="checkbox" id="htag_acasa" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_acasa" class="label-filter"><span class="checkbox-awesome"></span>Acasa</label>
-                    <input type="checkbox" id="htag_frumos" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_frumos" class="label-filter"><span class="checkbox-awesome"></span>Frumos</label>
-                    <input type="checkbox" id="htag_dragut" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_dragut" class="label-filter"><span class="checkbox-awesome"></span>Dragut</label>
-                    <input type="checkbox" id="htag_aglomerat" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_aglomerat" class="label-filter"><span class="checkbox-awesome"></span>Aglomerat</label>
-                    <input type="checkbox" id="htag_fum" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_fum" class="label-filter"><span class="checkbox-awesome"></span>Fum</label>
-                    <input type="checkbox" id="htag_bun" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_bun" class="label-filter"><span class="checkbox-awesome"></span>Bun</label>
-                    <input type="checkbox" id="htag_city" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_city" class="label-filter"><span class="checkbox-awesome"></span>City</label>
-                    <input type="checkbox" id="htag_gunoaie" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_gunoaie" class="label-filter"><span class="checkbox-awesome"></span>Gunoaie</label>
-                    <input type="checkbox" id="htag_aspect" class="input-checkbox-filter" title="Ceva">
-                    <label for="htag_aspect" class="label-filter"><span class="checkbox-awesome"></span>Aspect</label>
-
-                </div>
-            </div>
-            <div class="filter">
-                <div class="button-filter" id="resolution_filter"
-                     onclick="toggleNext('resolution_filter');toggleThis('resolution_filter')">Rezolutie
-                </div>
-                <div class="filter-toggle source-filter-toggle">
-                    <input type="checkbox" id="500x500" class="input-checkbox-filter" title="Ceva">
-                    <label for="500x500" class="label-filter"><span class="checkbox-awesome"></span>500px X 500px</label>
-                    <input type="checkbox" id="1000x1000" class="input-checkbox-filter" title="Ceva">
-                    <label for="1000x1000" class="label-filter"><span class="checkbox-awesome"></span>1000px X 1000px</label>
-                    <input type="checkbox" id="1200X1200" class="input-checkbox-filter" title="Ceva">
-                    <label for="1200X1200" class="label-filter"><span
-                            class="checkbox-awesome"></span>1200px X 1200px</label>
-                </div>
+            <div class="filter-toggle source-filter-toggle filter-toggle--active" id="source_filter_1">
+                <input type="checkbox" id="500px_input" class="input-checkbox-filter" title="Ceva">
+                <label for="500px_input" class="label-filter"><span class="checkbox-awesome"></span>500px</label>
+                <input type="checkbox" id="flickr_input" class="input-checkbox-filter" title="Ceva">
+                <label for="flickr_input" onclick="CheckFilters('flickr_input')" class="label-filter"><span
+                        class="checkbox-awesome"></span>Flickr</label>
+                <input type="checkbox" id="instagram_input" class="input-checkbox-filter" title="Ceva">
+                <label for="instagram_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Instagram</label>
             </div>
         </div>
+        <div class="filter">
+            <div class="button-filter button-filter--active" id="continent_filter"
+                 onclick="toggleElement('continent_filter_1','filter-toggle--active');toggleThis('continent_filter','button-filter--active')">
+                Continent
+            </div>
+            <div class="filter-toggle filter-toggle--active" id="continent_filter_1">
+                <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
+                <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
+                <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
+                <label for="america_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>America</label>
+                <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
+                <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">
+                <label for="australia_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Australia</label>
+                <input type="checkbox" id="antarctica_input" class="input-checkbox-filter" title="Ceva">
+                <label for="antarctica_input" class="label-filter"><span
+                        class="checkbox-awesome"></span>Antarctica</label>
+                <input type="checkbox" id="europa_input" class="input-checkbox-filter" title="Ceva">
+                <label for="europa_input" class="label-filter"><span class="checkbox-awesome"></span>Europa</label>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="button-filter button-filter--active" id="tag_filter"
+                 onclick="toggleElement('tag_filter_1','filter-toggle--active');toggleThis('tag_filter','button-filter--active')">
+                Categorie
+            </div>
+            <div class="filter-toggle filter-toggle--active" id="tag_filter_1">
+                <input type="checkbox" id="5_fara_categorie" class="input-checkbox-filter" title="Ceva">
+                <label for="5_fara_categorie" class="label-filter"><span class="checkbox-awesome"></span>Fara categorie</label>
+                <input type="checkbox" id="5_natura" class="input-checkbox-filter" title="Ceva">
+                <label for="5_natura" class="label-filter"><span class="checkbox-awesome"></span>Natura</label>
+                <input type="checkbox" id="5_film" class="input-checkbox-filter" title="Ceva">
+                <label for="5_film" class="label-filter"><span class="checkbox-awesome"></span>Film</label>
+                <input type="checkbox" id="5_mancare" class="input-checkbox-filter" title="Ceva">
+                <label for="5_mancare" class="label-filter"><span class="checkbox-awesome"></span>Mancare</label>
+                <input type="checkbox" id="5_abstract" class="input-checkbox-filter" title="Ceva">
+                <label for="5_abstract" class="label-filter"><span class="checkbox-awesome"></span>Abstract</label>
+                <input type="checkbox" id="5_animals" class="input-checkbox-filter" title="Ceva">
+                <label for="5_animals" class="label-filter"><span
+                        class="checkbox-awesome"></span>Animale</label>
+                <input type="checkbox" id="5_fashion" class="input-checkbox-filter" title="Ceva">
+                <label for="5_fashion" class="label-filter"><span class="checkbox-awesome"></span>Fashion</label>
+                <input type="checkbox" id="5_nude" class="input-checkbox-filter" title="Ceva">
+                <label for="5_nude" class="label-filter"><span class="checkbox-awesome"></span>Nud</label>
+                <input type="checkbox" id="5_city" class="input-checkbox-filter" title="Ceva">
+                <label for="5_city" class="label-filter"><span class="checkbox-awesome"></span>City</label>
+                <input type="checkbox" id="5_people" class="input-checkbox-filter" title="Ceva">
+                <label for="5_people" class="label-filter"><span class="checkbox-awesome"></span>Oameni</label>
+                <input type="checkbox" id="5_travel" class="input-checkbox-filter" title="Ceva">
+                <label for="5_travel" class="label-filter"><span class="checkbox-awesome"></span>Travel</label>
+                <input type="checkbox" id="5_night" class="input-checkbox-filter" title="Ceva">
+                <label for="5_night" class="label-filter"><span class="checkbox-awesome"></span>Noapte</label>
 
+            </div>
+        </div>
+        <div class="filter">
+            <div class="button-filter button-filter--active" id="resolution_filter"
+                 onclick="toggleElement('resolution_filter_1','filter-toggle--active');toggleThis('resolution_filter','button-filter--active')">
+                Rezolutie
+            </div>
+            <div class="filter-toggle filter-toggle--active" id="resolution_filter_1">
+                <input type="checkbox" id="200x200" class="input-checkbox-filter" title="Ceva">
+                <label for="200x200" class="label-filter"><span class="checkbox-awesome"></span>200px X
+                    200px</label>
+                <input type="checkbox" id="440x440" class="input-checkbox-filter" title="Ceva">
+                <label for="440x440" class="label-filter"><span class="checkbox-awesome"></span>440px X
+                    440px</label>
+                <input type="checkbox" id="1200X1200" class="input-checkbox-filter" title="Ceva">
+                <label for="1200X1200" class="label-filter"><span
+                        class="checkbox-awesome"></span>1200px X 1200px</label>
+            </div>
+        </div>
+    </div>
+    <div class="map--container">
         <!-- Map -->
-        <div class="col-xs-12">
+        <div class="general-full">
             <div class="map-container">
                 <div id="map" class="map"></div>
                 <div class="container-geolocation" id="container_geolocation">
                     <input type="checkbox" id="geolocation" class="input-checkbox-filter" title="Ceva">
-                    <label for="geolocation" onclick="CheckFilters('geolocation')" class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata locatia</label>
+                    <label for="geolocation" onclick="CheckFilters('geolocation')"
+                           class="label-filter label-filter-geolocation"><span class="checkbox-awesome"></span>Arata
+                        locatia</label>
                 </div>
+            </div>
+        </div>
+
+        <!-- Legenda -->
+        <div class="general-full legendTitle">
+            <h3><img src="media/map/map-legend.png" alt="map-legend"> <span class="legend-text">Legenda</span></h3>
+            <div class="general-full">
+                <span id="geolocation_legend" class="display-inline font-size-20px hidden-legend-uncecked">
+                    <img src="media/map/geolocation-marker.png" alt="geolocation-marker" style="margin-right: 12px;"
+                         class="legend display-inline">
+                    <span class="margin-bottom-s">Locatia dumneavoastra.</span>
+                </span>
+            </div>
+            <div class="general-full">
+                <span id="flickr_legend" class="display-inline font-size-20px hidden-legend-uncecked">
+                    <img src="media/map/photos-marker.png" alt="photos-marker" style="margin-right: 12px;"
+                         class="legend display-inline">
+                    <span class="margin-bottom-s">Imagini de pe Flickr.</span>
+                </span>
             </div>
         </div>
     </div>
 </div>
 
+
 <!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-xs-12 footer-left">
+            <div class="line">
+                <div class="general-half general-full footer-left">
                     <ul class="footer-links">
                         <li class="footer-link">
                             <a href="/" class="footer-link__a home-icon generic-icon">Acasa</a>
@@ -155,27 +211,27 @@
                     </ul>
                     <ul class="footer-links footer-links--right">
                         <li class="footer-link">
-                            <a href="/" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
+                            <a href="/map.html" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
                         </li>
                         <li class="footer-link">
-                            <a href="#" class="footer-link__a about-icon generic-icon">Despre noi</a>
+                            <a href="/despre_noi.html" class="footer-link__a about-icon generic-icon">Despre noi</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6 col-xs-12 footer-right">
+                <div class="general-half general-full footer-right">
                     <div class="logo-footer">
                         <a href="/" class="logo-link--footer">
                             <img src="media/logo_geos.png" alt="logo" class="logo-img--footer">
                         </a>
                     </div>
                     <div class="social-media">
-                        <a href="www.facebook.com" class="social-media__link">
+                        <a href="https://www.facebook.com" class="social-media__link icon-transition">
                             <img src="media/facebook.png" alt="facebook" class="social-media__img">
                         </a>
-                        <a href="www.twitter.com" class="social-media__link">
+                        <a href="https://www.twitter.com" class="social-media__link icon-transition">
                             <img src="media/twitter.png" alt="twitter" class="social-media__img">
                         </a>
-                        <a href="www.google.com" class="social-media__link">
+                        <a href="https://www.google.com" class="social-media__link icon-transition">
                             <img src="media/googleplus.png" alt="google" class="social-media__img">
                         </a>
                     </div>
@@ -188,7 +244,9 @@
         GeoS team M.G , D.I.A , V.A. .
     </div>
 </footer>
+<script src="js/storage.js"></script>
 <!-- Scripts -->
+<script src="js/500px.js"></script>
 <script src="js/general.js"></script>
 <!-- Map Scripts -->
 <script src="js/map.js"></script>
