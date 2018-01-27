@@ -62,9 +62,8 @@ function CreatePopUpMarker(marker, content) {
 }
 
 /*function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=47510a816a4dcdf3de88893c6d937f27&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3429cc6956360da0b9b62612771659a&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
 
->>>>>>> 4ee3a0f1edf7ee93d0680f362355daa23c72c1aa
     fetch(url)
         .then(res => res.json()
 )
@@ -168,7 +167,7 @@ function populateMap500px(map) {
              map[mapItem].longitude ? map[mapItem].longitude : 0
          );
          var title = map[mapItem].name;
-         var icn = iconsPath + '500px.png';
+         var icn = iconsPath + '500px-photos-marker.png';
          var marker = CreateMarker(pos, title, icn, "flickr");
          // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
          var urlPhoto = map[mapItem].image_url;
