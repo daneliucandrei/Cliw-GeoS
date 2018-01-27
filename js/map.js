@@ -144,11 +144,11 @@ _500px.init({
 });
 
 function createMap500px(data,fire) {
+    console.log(data)
     if(fire) {
         _500px.api('/photos/search', data, function (response) {
             map500px = response.data.photos;
             populateMap500px(response.data.photos);
-            console.log(data)
             console.log(map500px);
         });
     }
@@ -167,7 +167,7 @@ function populateMap500px(map) {
              map[mapItem].longitude ? map[mapItem].longitude : 0
          );
          var title = map[mapItem].name;
-         var icn = iconsPath + 'photos-marker.png';
+         var icn = iconsPath + '500px.png';
          var marker = CreateMarker(pos, title, icn, "flickr");
          // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
          var urlPhoto = map[mapItem].image_url;

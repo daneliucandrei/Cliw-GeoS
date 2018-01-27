@@ -102,12 +102,11 @@ function watchStorage(list) {
                         }
                     }
                 }
-                console.log(dataFilter)
                 if (mapFilter.values['500px_input']) {
-                    createMap500px(dataFilter, true);
+                    dataFilter.only!=='' ? createMap500px(dataFilter, true) : createMap500px(dataFilter, false);
+                    dataFilter.only='';
                 }
                 if (this.id === '500px_input') {
-                    console.log(this.checked);
                     if (this.checked) {
                         createMap500px(dataFilter, true);
                     }
