@@ -62,7 +62,7 @@ function CreatePopUpMarker(marker, content) {
 }
 
 function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=47510a816a4dcdf3de88893c6d937f27&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b43bee2d2eb9dfbf830c646817398418&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
     
     fetch(url)
         .then(res => res.json())
