@@ -84,15 +84,18 @@
         <div class="filter-container-height">
             <div class="filter">
                 <div class="button-filter button-filter--active" id="continent_filter"
-                     onclick="toggleElement('continent_filter_1','filter-toggle--active');toggleThis('continent_filter','button-filter--active')">
+                     onclick="toggleElement('radiocb','filter-toggle--active');toggleThis('continent_filter','button-filter--active')">
                     Continent
                 </div>
-                <div class="filter-toggle filter-toggle--active" id="continent_filter_1">
+                <div class="filter-toggle filter-toggle--active" id="radiocb" onclick="/*cbclick(event)*/">
                     <input type="checkbox" id="africa_input" class="input-checkbox-filter" title="africa">
                     <label for="africa_input" class="label-filter"><span class="checkbox-awesome"></span>Africa</label>
-                    <input type="checkbox" id="america_input" class="input-checkbox-filter" title="Ceva">
-                    <label for="america_input" class="label-filter"><span
-                            class="checkbox-awesome"></span>America</label>
+                    <input type="checkbox" id="america_n_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="america_n_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>America de Nord</label>
+                    <input type="checkbox" id="america_s_input" class="input-checkbox-filter" title="Ceva">
+                    <label for="america_s_input" class="label-filter"><span
+                            class="checkbox-awesome"></span>America de Sud</label>
                     <input type="checkbox" id="asia_input" class="input-checkbox-filter" title="Ceva">
                     <label for="asia_input" class="label-filter"><span class="checkbox-awesome"></span>Asia</label>
                     <input type="checkbox" id="australia_input" class="input-checkbox-filter" title="Ceva">

@@ -48,99 +48,127 @@ var ApplyFilter = {
     features: {
         'popular': 'popular',
         'today': 'today',
-        'yesterday':'fresh_yesterday',
-        'week':'fresh_week'
+        'yesterday': 'fresh_yesterday',
+        'week': 'fresh_week'
     }
     ,
     camera: {}
+    ,
+    geo: {
+        'america_n_input':'44.330,-109.754,3715.679km',
+        'america_s_input':'-23.030,-67.903,3902.238km',
+        'antarctica_input':'-81.500,0.000,1883.860km',
+        'africa_input':'2.070,15.800,4623.261km',
+        'asia_input':'34.969,99.819,3733.764km',
+        'australia_input':'-30.941,140.810,2334.124km',
+        'europa_input': '52.976,7.857,1923.322km',
+    }
 };
 var dataFilterAbstract = {};
 dataFilterAbstract.rpp = 50;
 dataFilterAbstract.only = '';
-dataFilterAbstract.image_size =200;
+dataFilterAbstract.image_size = 200;
 dataFilterAbstract.was_featured_type = '';
+var boolCenter = false;
 mapFilter.add = function (key, value) {
     this.values[key] = value;
     return this;
 };
-
-function initializeMapFilter() {
-    if (read_cookie(appName) === null) {
-        console.log('not cookie');
-        for (var key in list) {
-            if (typeof(list[key].id) === "string") {
-                entity = list[key].id;
-                mapFilter.add(entity, list[key].checked);
+window.onload = function () {
+    function initializeMapFilter() {
+        if (read_cookie(appName) === null) {
+            console.log('not cookie');
+            for (var key in list) {
+                if (typeof(list[key].id) === "string") {
+                    entity = list[key].id;
+                    mapFilter.add(entity, list[key].checked);
+                }
             }
         }
-    }
-    else {
-        console.log('cookie');
-        mapFilter.values = read_cookie(appName);
-        var dataFilter = dataFilterAbstract;
-        for (var key in mapFilter.values) {
-            if (mapFilter.values[key]) {
-                (document.getElementById(key).checked = true);
-                if (typeof ApplyFilter.category[key] !== 'undefined') {
-                    dataFilter.only += ApplyFilter.category[key] + ',';
-                }
-                if (typeof ApplyFilter.features[key] !== 'undefined') {
-                    dataFilter.was_featured_type = ApplyFilter.features[key];
-                }
-                if (typeof ApplyFilter.image_size[key] !== 'undefined') {
-                    dataFilter.image_size = ApplyFilter.image_size[key];
-                }
+        else {
+            console.log('cookie');
+            mapFilter.values = read_cookie(appName);
+            var dataFilter = dataFilterAbstract;
+            for (var key in mapFilter.values) {
+                if (mapFilter.values[key]) {
+                    (document.getElementById(key).checked = true);
+                    if (typeof ApplyFilter.category[key] !== 'undefined') {
+                        dataFilter.only += ApplyFilter.category[key] + ',';
+                    }
+                    if (typeof ApplyFilter.features[key] !== 'undefined') {
+                        dataFilter.was_featured_type = ApplyFilter.features[key];
+                    }
+                    if (typeof ApplyFilter.image_size[key] !== 'undefined') {
+                        dataFilter.image_size = ApplyFilter.image_size[key];
+                    }
+                    if (typeof ApplyFilter.geo[key] !== 'undefined') {
+                        dataFilter.geo = ApplyFilter.geo[key];
+                        var location = ApplyFilter.geo[key].split(',');
+                        zoomMap({lat: parseFloat(location[0]), lng: parseFloat(location[1])}, 3);
+                        boolCenter = true;
+                    }
 
+
+                }
             }
-        }
-        if (mapFilter.values['500px_input']) {
-            window.onload = function () {
+            if (mapFilter.values['500px_input']) {
                 createMap500px(dataFilter, true)
             }
         }
     }
-}
 
-initializeMapFilter();
+    initializeMapFilter();
 
-function watchStorage(list) {
-    var key;
-    for (key in list) {
-        if (typeof(list[key].id) === "string") {
-            list[key].onclick = function () {
-                var dataFilter = dataFilterAbstract;
-                mapFilter.values[this.id] = this.checked;
-                push_cookie(appName, mapFilter.values);
-                for (var i in mapFilter.values) {
-                    if (mapFilter.values[i]) {
-                        if (typeof ApplyFilter.category[i] !== 'undefined') {
-                            dataFilter.only += ApplyFilter.category[i] + ',';
-                        }
-                        if (typeof ApplyFilter.features[i] !== 'undefined') {
-                            dataFilter.was_featured_type = ApplyFilter.features[i];
-                        }
-                        if (typeof ApplyFilter.image_size[i] !== 'undefined') {
-                            dataFilter.image_size = ApplyFilter.image_size[i];
+    function watchStorage(list) {
+        var key;
+        for (key in list) {
+            if (typeof(list[key].id) === "string") {
+                list[key].onclick = function () {
+                    var dataFilter = dataFilterAbstract;
+                    mapFilter.values[this.id] = this.checked;
+                    push_cookie(appName, mapFilter.values);
+                    for (var i in mapFilter.values) {
+                        if (mapFilter.values[i]) {
+                            if (typeof ApplyFilter.category[i] !== 'undefined') {
+                                dataFilter.only += ApplyFilter.category[i] + ',';
+                            }
+                            if (typeof ApplyFilter.features[i] !== 'undefined') {
+                                dataFilter.was_featured_type = ApplyFilter.features[i];
+                            }
+                            if (typeof ApplyFilter.image_size[i] !== 'undefined') {
+                                dataFilter.image_size = ApplyFilter.image_size[i];
+                            }
+                            if (typeof ApplyFilter.geo[i] !== 'undefined') {
+                                dataFilter.geo = ApplyFilter.geo[i];
+                                var location = ApplyFilter.geo[i].split(',');
+                                zoomMap({lat: parseFloat(location[0]), lng: parseFloat(location[1])}, 3);
+                                boolCenter = true;
+                            }
+                            if(!boolCenter) {
+                                zoomMap(defaultPos,2);
+                            }
                         }
                     }
-                }
-                if (mapFilter.values['500px_input']) {
-                    createMap500px(dataFilter, true);
-                    dataFilter.only = '';
-                    dataFilter.was_featured_type = '';
-                    dataFilter.image_size=200;
-                }
-                if (this.id === '500px_input') {
-                    if (this.checked) {
+                    if (mapFilter.values['500px_input']) {
                         createMap500px(dataFilter, true);
+                        dataFilter.only = '';
+                        dataFilter.was_featured_type = '';
+                        dataFilter.image_size = 200;
+                        dataFilter.geo = '';
+                        boolCenter=false;
                     }
-                    else {
-                        createMap500px(dataFilter, false);
+                    if (this.id === '500px_input') {
+                        if (this.checked) {
+                            createMap500px(dataFilter, true);
+                        }
+                        else {
+                            createMap500px(dataFilter, false);
+                        }
                     }
-                }
-            };
+                };
+            }
         }
     }
-}
 
-watchStorage(list);
+    watchStorage(list);
+}
