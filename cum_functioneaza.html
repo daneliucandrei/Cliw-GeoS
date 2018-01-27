@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,21 +13,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div class="header-container">
+<div class="header-container" itemscope itemtype="http://schema.org/WPHeader">
     <div class="container">
         <div class="line">
             <a href="/" class="logo-link">
                 <img src="media/logo_geos.png" alt="logo" class="logo-img">
             </a>
             <ul class="menu-desktop">
-                <li><a class="menu-desktop__child" href="/">Acasa</a></li>
-                <li><a class="menu-desktop__child" href="/map.html">Harta</a></li>
+                <li><a class="menu-desktop__child" href="/" itemprop="url">Acasa</a></li>
+                <li><a class="menu-desktop__child" href="/map.html" itemprop="url">Harta</a></li>
                 <li>
-                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html"> Despre <span
+                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html" itemprop="url"> Despre <span
                             class="icon-keyboard_arrow_down"> </span></a>
                     <ul class="menu-desktop-submenu">
-                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child">Despre noi</a></li>
-                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child" itemprop="url">Despre noi</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child" itemprop="url">Cum functioneaza?</a>
                         </li>
                     </ul>
                 </li>
@@ -35,16 +35,16 @@
         </div>
     </div>
 </div>
-<div class="menu-mobile-container">
+<div class="menu-mobile-container" itemscope itemtype="http://schema.org/WPHeader">
     <a href="/" class="logo-link">
         <img src="media/logo_geos.png" alt="logo" class="logo-img">
     </a>
     <div class="menu-icon" id="menu-icon"  onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
     <div class="menu-mobile" id="menu_mobile">
-        <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
-        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
-        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
-        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum functioneaza?</a></div>
+        <div><a class="menu-mobile__child home-icon generic-icon" href="/" itemprop="url">Acasa</a></div>
+        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html" itemprop="url">Harta</a></div>
+        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon" itemprop="url">Despre noi</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon" itemprop="url">Cum functioneaza?</a></div>
 
 
     </div>
@@ -53,21 +53,21 @@
     <div class="container">
         <div class="line">
             <div class="desktop-full">
-                <h1 class="general-color">Cum functioneza GeoS?</h1>
-                <p class="text-generic">Este foarte simplu , esti la un click distanta</p>
-                <p class="title-generic general-color">Explorati Harta</p>
-                <p class="text-generic">Pe computer, dați clic oriunde pe hartă pentru a obține detalii despre o
+                <h1 class="general-color" itemscope itemtype="http://schema.org/Question">Cum functioneza GeoS?</h1>
+                <p class="text-generic" itemscope itemtype="http://schema.org/Answer">Este foarte simplu , esti la un click distanta</p>
+                <p class="title-generic general-color" itemscope itemtype="http://schema.org/HowToSection">Explorati Harta</p>
+                <p class="text-generic" itemscope itemtype="http://schema.org/HowToTip">Pe computer, dați clic oriunde pe hartă pentru a obține detalii despre o
                     locație. Pe telefon sau tabletă, atingeți lung oriunde pe hartă pentru a obține detalii despre o
                     locație.</p>
-                <p class="title-generic general-color">Raportați o problemă referitoare la date</p>
-                <p class="text-generic">Contribuiți la îmbunătățirea GeoS prin raportarea problemelor cu harta,
+                <p class="title-generic general-color" itemscope itemtype="http://schema.org/HowToSection">Raportați o problemă referitoare la date</p>
+                <p class="text-generic" itemscope itemtype="http://schema.org/HowToTip">Contribuiți la îmbunătățirea GeoS prin raportarea problemelor cu harta,
                     cum ar fi detalii incorecte privind companiile, nume incorecte ale drumurilor sau alte erori.</p>
-                <p class="title-generic general-color">Deplasați harta</p>
-                <p class="text-generic">Pentru a vedea mai multe detalii pe hartă, măriți sau micșorați. Pe dispozitivul
+                <p class="title-generic general-color" itemscope itemtype="http://schema.org/HowToSection">Deplasați harta</p>
+                <p class="text-generic" itemscope itemtype="http://schema.org/HowToTip">Pentru a vedea mai multe detalii pe hartă, măriți sau micșorați. Pe dispozitivul
                     mobil, puteți folosi gesturi precum cele de rotire, înclinare și zoom, pentru a vă deplasa rapid în
                     aplicația GeoS.</p>
-                <p class="title-generic general-color">Vedeți locația dvs. actuală</p>
-                <p class="text-generic">Pentru a căuta locații din apropiere și pentru a obține mai rapid indicații de
+                <p class="title-generic general-color" itemscope itemtype="http://schema.org/HowToSection">Vedeți locația dvs. actuală</p>
+                <p class="text-generic" itemscope itemtype="http://schema.org/HowToTip">Pentru a căuta locații din apropiere și pentru a obține mai rapid indicații de
                     orientare, centrați harta pe locația actuală.<br/>
                     Dacă primiți o eroare similară cu „Locația dvs. nu poate fi stabilită” sau locația este în continuare incorectă, iată câteva soluții pe care le puteți încerca:<br/>
                     - actualizați browserul (cum ar fi Chrome, Firefox sau Safari);<br/>
@@ -75,8 +75,8 @@
                     - verificați încă o dată setările legate de permisiune folosind instrucțiunile de mai sus;<br/>
                     - reporniți computerul.<br/>
                 </p>
-                <p class="title-generic general-color">Filtrați rezultatele</p>
-                <p class="text-generic">Dacă utilizați Geos în modul simplificat, nu puteți filtra rezultatele de căutare.<br/>
+                <p class="title-generic general-color" itemscope itemtype="http://schema.org/HowToSection">Filtrați rezultatele</p>
+                <p class="text-generic" itemscope itemtype="http://schema.org/HowToTip">Dacă utilizați Geos în modul simplificat, nu puteți filtra rezultatele de căutare.<br/>
                     Căutați un tip de locatie, poza sau tara.<br/>
                     Alegeți un filtru:<br/>
                    - dimensiune poza: căutați în funcție de dimensiunea fotografiilor;<br/>
