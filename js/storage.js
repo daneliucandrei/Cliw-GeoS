@@ -34,22 +34,31 @@ var ApplyFilter = {
         '5_people': 'People',
         '5_travel': 'Travel',
         '5_city': 'City',
-        '5_night':'Night'
+        '5_night': 'Night'
 
 
     },
     image_size: {
         '70x70': 1,
         '440x440': 440,
-        '200x200': 200
+        '200x200': 200,
+        '600x600': 600
+    }
+    ,
+    features: {
+        'popular': 'popular',
+        'today': 'today',
+        'yesterday':'fresh_yesterday',
+        'week':'fresh_week'
     }
     ,
     camera: {}
-}
+};
 var dataFilterAbstract = {};
 dataFilterAbstract.rpp = 50;
-dataFilterAbstract.only = 'Nudes,Bike,';
-dataFilterAbstract.resolution = 440;
+dataFilterAbstract.only = '';
+dataFilterAbstract.image_size =200;
+dataFilterAbstract.was_featured_type = '';
 mapFilter.add = function (key, value) {
     this.values[key] = value;
     return this;
@@ -74,6 +83,12 @@ function initializeMapFilter() {
                 (document.getElementById(key).checked = true);
                 if (typeof ApplyFilter.category[key] !== 'undefined') {
                     dataFilter.only += ApplyFilter.category[key] + ',';
+                }
+                if (typeof ApplyFilter.features[key] !== 'undefined') {
+                    dataFilter.was_featured_type = ApplyFilter.features[key];
+                }
+                if (typeof ApplyFilter.image_size[key] !== 'undefined') {
+                    dataFilter.image_size = ApplyFilter.image_size[key];
                 }
 
             }
@@ -101,11 +116,19 @@ function watchStorage(list) {
                         if (typeof ApplyFilter.category[i] !== 'undefined') {
                             dataFilter.only += ApplyFilter.category[i] + ',';
                         }
+                        if (typeof ApplyFilter.features[i] !== 'undefined') {
+                            dataFilter.was_featured_type = ApplyFilter.features[i];
+                        }
+                        if (typeof ApplyFilter.image_size[i] !== 'undefined') {
+                            dataFilter.image_size = ApplyFilter.image_size[i];
+                        }
                     }
                 }
                 if (mapFilter.values['500px_input']) {
                     createMap500px(dataFilter, true);
-                    dataFilter.only='';
+                    dataFilter.only = '';
+                    dataFilter.was_featured_type = '';
+                    dataFilter.image_size=200;
                 }
                 if (this.id === '500px_input') {
                     if (this.checked) {
