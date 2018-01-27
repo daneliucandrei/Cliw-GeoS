@@ -8,7 +8,7 @@ function offHover(selector) {
     $.getElementsByClassName(selector)[0].setAttribute("src", "media/earth-spinning-rotating-animation-25-0.png");
 }
 
-window.onscroll = function () {
+/*window.onscroll = function () {
     var header = $.getElementsByClassName('header-container')[0];
     if (window.scrollY > 160) {
         if (!header.classList.contains('header-container-scroll'))
@@ -18,6 +18,7 @@ window.onscroll = function () {
         header.classList.remove("header-container-scroll");
     }
 }
+*/
 
 function toggleElement(thisId,classToAdd) {
    var $this= $.getElementById(thisId);
