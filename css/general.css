@@ -155,3 +155,22 @@ ul , ol {
 .text-center {
     text-align: center;
 }
+.filter--container {
+    width:20%;
+    float:left;
+}
+.map--container {
+    width:80%;
+    float:left;
+}
+.container--for-map {
+
+}
+@media (max-width:768px) {
+    .container--for-map {
+        width:750px;
+    }
+    .filter-container {
+
+    }
+}

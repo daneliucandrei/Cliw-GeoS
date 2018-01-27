@@ -2,7 +2,7 @@
 function push_cookie(name, value) {
     var cookieString = [name, '=', JSON.stringify(value),
         '; domain=.', window.location.host.toString(),
-        "; expires="+ new Date(new Date().getTime()+60*60*1000*744/*1 luna*/).toGMTString(),
+        "; expires=" + new Date(new Date().getTime() + 60 * 60 * 1000 * 744/*1 luna*/).toGMTString(),
         '; path=/;'].join('');
     document.cookie = cookieString;
 }
@@ -23,19 +23,32 @@ var mapFilter = {
 };
 var ApplyFilter = {
     category: {
-        'category_natura':'Nature',
-        'category_film' :'Film',
-        'category_mancare':'Food'
+        '5_natura': 'Nature',
+        '5_film': 'Film',
+        '5_mancare': 'Food',
+        '5_fara_categorie': 'Uncategorized',
+        '5_abstract': 'Abstract',
+        '5_animals': 'Animals',
+        '5_fashion': 'Fashion',
+        '5_nude': 'Nude',
+        '5_night': 'Night',
+        '5_people': 'People',
+        '5_travel': 'Travel'
+
+
     },
-    image_size : {
+    image_size: {
+        '70x70': 1,
         '440x440': 440,
-        '200x200':200
+        '200x200': 200
     }
+    ,
+    camera: {}
 }
-var dataFilter = {};
-dataFilter.rpp=50;
-dataFilter.only = 'Nudes,Bike,';
-dataFilter.resolution=[440];
+var dataFilterAbstract = {};
+dataFilterAbstract.rpp = 50;
+dataFilterAbstract.only = 'Nudes,Bike,';
+dataFilterAbstract.resolution = 440;
 mapFilter.add = function (key, value) {
     this.values[key] = value;
     return this;
@@ -54,19 +67,20 @@ function initializeMapFilter() {
     else {
         console.log('cookie');
         mapFilter.values = read_cookie(appName);
-        //console.log(mapFilter.values);
+        var dataFilter = dataFilterAbstract;
         for (var key in mapFilter.values) {
             if (mapFilter.values[key]) {
                 (document.getElementById(key).checked = true);
-                console.log(ApplyFilter.category['category_film']);
-                if( typeof ApplyFilter.category[key] !== 'undefined') {
-                    dataFilter.only+= ApplyFilter.category[key] + ',';
+                if (typeof ApplyFilter.category[key] !== 'undefined') {
+                    dataFilter.only += ApplyFilter.category[key] + ',';
                 }
 
             }
         }
-        if(mapFilter.values['500px_input']) {
-            window.onload = function () {createMap500px(dataFilter,true)}
+        if (mapFilter.values['500px_input']) {
+            window.onload = function () {
+                createMap500px(dataFilter, true)
+            }
         }
     }
 }
@@ -78,18 +92,27 @@ function watchStorage(list) {
     for (key in list) {
         if (typeof(list[key].id) === "string") {
             list[key].onclick = function () {
+                var dataFilter = dataFilterAbstract;
                 mapFilter.values[this.id] = this.checked;
                 push_cookie(appName, mapFilter.values);
-                if( typeof ApplyFilter.category[key] !== 'undefined') {
-                    dataFilter.only+= ApplyFilter.category[key] + ',';
+                for (var i in mapFilter.values) {
+                    if (mapFilter.values[i]) {
+                        if (typeof ApplyFilter.category[i] !== 'undefined') {
+                            dataFilter.only += ApplyFilter.category[i] + ',';
+                        }
+                    }
                 }
-                if(this.id==='500px_input') {
-                   console.log(this.checked);
-                    if(this.checked) {
-                        createMap500px(dataFilter,true);
+                console.log(dataFilter)
+                if (mapFilter.values['500px_input']) {
+                    createMap500px(dataFilter, true);
+                }
+                if (this.id === '500px_input') {
+                    console.log(this.checked);
+                    if (this.checked) {
+                        createMap500px(dataFilter, true);
                     }
                     else {
-                        createMap500px(dataFilter,false);
+                        createMap500px(dataFilter, false);
                     }
                 }
             };
