@@ -3,6 +3,7 @@ var googleMap;
 var iconsPath = 'media/map/';
 var geolocationMarker = [];
 var flickrMarkers = [];
+var pxMarkers =[];
 var instagramMarkers = [];
 
 function initMap() {
@@ -24,6 +25,9 @@ function CreateMarker(pos, title, icn, source) {
     }
     if (source == "flickr") {
         flickrMarkers.push(marker);
+    }
+    if(source == "500px") {
+        pxMarkers.push(marker);
     }
 //    if (source == "instagram") {
 //        
@@ -145,6 +149,7 @@ _500px.init({
 
 function createMap500px(data,fire) {
     console.log(data)
+    setMapOnAll(null,pxMarkers)
     if(fire) {
         _500px.api('/photos/search', data, function (response) {
             map500px = response.data.photos;
@@ -154,7 +159,6 @@ function createMap500px(data,fire) {
     }
     else {
         populateMap500px({});
-        setMapOnAll(null,flickrMarkers)
     }
 
 }
@@ -168,8 +172,7 @@ function populateMap500px(map) {
          );
          var title = map[mapItem].name;
          var icn = iconsPath + '500px-photos-marker.png';
-         var marker = CreateMarker(pos, title, icn, "flickr");
-         // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
+         var marker = CreateMarker(pos, title, icn, "500px");
          var urlPhoto = map[mapItem].image_url;
 
          CreatePopUpMarker(marker, urlPhoto);
