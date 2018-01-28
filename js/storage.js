@@ -129,6 +129,24 @@ function watchStorage(list) {
                         createMap500px(dataFilter, false);
                     }
                 }
+                
+                if (mapFilter.values['flickr_input']) {
+                    jsonFlickr(dataFilter, true);
+                    dataFilter.only = '';
+                    dataFilter.was_featured_type = '';
+                    dataFilter.image_size = 200;
+                    dataFilter.geo = '';
+                    boolCenter=false;
+                }
+                
+                if(this.id === 'flickr_input') {
+                    if (this.checked) {
+                        jsonFlickr(dataFilter, true);
+                    }
+                    else {
+                        jsonFlickr(dataFilter, false);
+                    }
+                }
             };
         }
     }
@@ -212,4 +230,8 @@ window.onload = function () {
     };
 
     watchStorage(list);
+}
+
+list[key].onchange = function () {
+    console.log('schimbare:', this.id);
 }
