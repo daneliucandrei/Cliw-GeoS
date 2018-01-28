@@ -74,6 +74,93 @@ mapFilter.add = function (key, value) {
     this.values[key] = value;
     return this;
 };
+function triggerEvent(el, type)
+{
+    if ((el[type] || false) && typeof el[type] == 'function')
+    {
+        el[type](el);
+    }
+}
+function watchStorage(list) {
+    var key;
+    for (key in list) {
+        if (typeof(list[key].id) === "string") {
+            list[key].onchange = function () {
+                console.log('change',this.id);
+                var dataFilter = dataFilterAbstract;
+                mapFilter.values[this.id] = this.checked;
+                push_cookie(appName, mapFilter.values);
+                for (var i in mapFilter.values) {
+                    if (mapFilter.values[i]) {
+                        if (typeof ApplyFilter.category[i] !== 'undefined') {
+                            dataFilter.only += ApplyFilter.category[i] + ',';
+                        }
+                        if (typeof ApplyFilter.features[i] !== 'undefined') {
+                            dataFilter.was_featured_type = ApplyFilter.features[i];
+                        }
+                        if (typeof ApplyFilter.image_size[i] !== 'undefined') {
+                            dataFilter.image_size = ApplyFilter.image_size[i];
+                        }
+                        if (typeof ApplyFilter.geo[i] !== 'undefined') {
+                            dataFilter.geo = ApplyFilter.geo[i];
+                            var location = ApplyFilter.geo[i].split(',');
+                            zoomMap({lat: parseFloat(location[0]), lng: parseFloat(location[1])}, 3);
+                            boolCenter = true;
+                        }
+                        if(!boolCenter) {
+                            zoomMap(defaultPos,2);
+                        }
+                    }
+                }
+                appliedFilters(list);
+                if (mapFilter.values['500px_input']) {
+                    createMap500px(dataFilter, true);
+                    dataFilter.only = '';
+                    dataFilter.was_featured_type = '';
+                    dataFilter.image_size = 200;
+                    dataFilter.geo = '';
+                    boolCenter=false;
+                }
+                if (this.id === '500px_input') {
+                    if (this.checked) {
+                        createMap500px(dataFilter, true);
+                    }
+                    else {
+                        createMap500px(dataFilter, false);
+                    }
+                }
+            };
+        }
+    }
+}
+function appliedFilters(list,removeAll) {
+    var filterActive;
+    document.getElementById('filter-active').innerHTML = "";
+    if(typeof removeAll=== 'undefined') {
+        removeAll = false;
+    }
+    if (!removeAll) {
+        for (var key in list) {
+            if (typeof(list[key].id) === "string") {
+                if (list[key].checked)
+                    if (typeof list[key].dataset.section !== 'undefined') {
+                        console.log(list[key].dataset.section);
+                        document.getElementById('filter-active').innerHTML += '<div class="top-filter-active" data-id=' + list[key].id + '>' + list[key].dataset.section + '</div>';
+                    }
+            }
+        }
+    }
+    else {
+        for (var key in list) {
+            if(list[key].checked)
+            {
+                document.getElementById(list[key].id).checked=false;
+                triggerEvent(document.getElementById(list[key].id), 'onchange');
+
+            }
+        }
+    }
+}
 window.onload = function () {
     function initializeMapFilter() {
         if (read_cookie(appName) === null) {
@@ -111,6 +198,7 @@ window.onload = function () {
 
                 }
             }
+            appliedFilters(list);
             if (mapFilter.values['500px_input']) {
                 createMap500px(dataFilter, true)
             }
@@ -119,56 +207,9 @@ window.onload = function () {
 
     initializeMapFilter();
 
-    function watchStorage(list) {
-        var key;
-        for (key in list) {
-            if (typeof(list[key].id) === "string") {
-                list[key].onclick = function () {
-                    var dataFilter = dataFilterAbstract;
-                    mapFilter.values[this.id] = this.checked;
-                    push_cookie(appName, mapFilter.values);
-                    for (var i in mapFilter.values) {
-                        if (mapFilter.values[i]) {
-                            if (typeof ApplyFilter.category[i] !== 'undefined') {
-                                dataFilter.only += ApplyFilter.category[i] + ',';
-                            }
-                            if (typeof ApplyFilter.features[i] !== 'undefined') {
-                                dataFilter.was_featured_type = ApplyFilter.features[i];
-                            }
-                            if (typeof ApplyFilter.image_size[i] !== 'undefined') {
-                                dataFilter.image_size = ApplyFilter.image_size[i];
-                            }
-                            if (typeof ApplyFilter.geo[i] !== 'undefined') {
-                                dataFilter.geo = ApplyFilter.geo[i];
-                                var location = ApplyFilter.geo[i].split(',');
-                                zoomMap({lat: parseFloat(location[0]), lng: parseFloat(location[1])}, 3);
-                                boolCenter = true;
-                            }
-                            if(!boolCenter) {
-                                zoomMap(defaultPos,2);
-                            }
-                        }
-                    }
-                    if (mapFilter.values['500px_input']) {
-                        createMap500px(dataFilter, true);
-                        dataFilter.only = '';
-                        dataFilter.was_featured_type = '';
-                        dataFilter.image_size = 200;
-                        dataFilter.geo = '';
-                        boolCenter=false;
-                    }
-                    if (this.id === '500px_input') {
-                        if (this.checked) {
-                            createMap500px(dataFilter, true);
-                        }
-                        else {
-                            createMap500px(dataFilter, false);
-                        }
-                    }
-                };
-            }
-        }
-    }
+    document.getElementById('button-remove-filtre').onclick = function () {
+        appliedFilters(list,true);
+    };
 
     watchStorage(list);
 }

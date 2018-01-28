@@ -1,5 +1,4 @@
 .map {
-    margin-top: 50px;
     width: 100%;
     height: 500px;
     background-color: grey;
@@ -192,6 +191,23 @@
 .hidden-legend-uncecked {
     position: absolute;
     visibility: hidden;
+}
+.top-filter-active {
+    border: 1px solid #42ab00;
+    padding: 2px 10px 2px 4px;
+    display: inline-block;
+    margin-left:5px;
+    margin-bottom:5px;
+}
+.filter-active--top {
+    min-height:30px;
+    width:100%;
+    margin-top: 25px;
+    margin-bottom:10px;
+}
+.button-remove {
+    float:right;
+    font-size: 13px;
 }
 
 @media (max-width: 768px) {
