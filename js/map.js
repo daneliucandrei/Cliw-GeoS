@@ -81,13 +81,48 @@ function CreatePopUpMarker(marker, content) {
 function CreateUrlFlickr(dataFilter) {
     setMapOnAll(null, flickrMarkers);
     flickrMarkers = [];
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2eab41b196d9ba760b21e0b3004b48d&tag_mode=all&bbox=-180%2C-90%2C180%2C90&has_geo=1&radius=&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&tags=";
+    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2eab41b196d9ba760b21e0b3004b48d&has_geo=1&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1';
+    
+    var continents = dataFilter.geo;
+    url = url + '&bbox=';
+    switch(continents) {
+        case '2.070,15.800,4623.261km':
+            console.log('Africa.');
+            url = url + '-20%2C-30%2C60%2C30';
+            break;
+        case '52.976,7.857,1923.322km':
+            console.log('Europa.');
+            url = url + '-5%2C10%2C40%2C80';
+            break;
+        case '44.330,-109.754,3715.679km':
+            console.log('America de Nord.');
+            url = url + '-150%2C20%2C-50%2C90';
+            break;
+        case '-23.030,-67.903,3902.238km':
+            console.log('America de Sud.');
+            url = url + '-105%2C-55%2C-30%2C12';
+            break;
+        case '34.969,99.819,3733.764km':
+            console.log('Asia.');
+            url = url + '45%2C-10%2C160%2C80';
+            break;
+        case '-30.941,140.810,2334.124km':
+            console.log('Australia.');
+            url = url + '110%2C-50%2C160%2C-10';
+            break;
+        default:
+            console.log('Filtru fara Continent.');
+            url = url + '-180%2C-90%2C180%2C90'
+            break;
+    }
+    console.log(continents);
     
     var tags = dataFilter.only.replace(/,/g,'%2C+');
+    url = url + '&tags=';
     tags = tags.substr(0, tags.length - 4);   
     url = url + tags;
+    url = url + '&tag_mode=all';
     console.log(url);
-    console.log(tags);
     return url;
 }
 
@@ -97,7 +132,6 @@ function GetJsonFlickr(dataFilter) {
         .then(res => res.json()
 )
 .then((data) => {
-        console.log(data);
         for(var i = 0; i < data.photos.photo.length; i++)
         {
             var pos = new google.maps.LatLng(
