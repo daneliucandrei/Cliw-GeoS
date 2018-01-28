@@ -14,21 +14,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div class="header-container">
+<div class="header-container" itemscope itemtype="http://schema.org/WPHeader">
     <div class="container">
         <div class="line">
             <a href="/" class="logo-link">
                 <img src="media/logo_geos.png" alt="logo" class="logo-img">
             </a>
             <ul class="menu-desktop">
-                <li><a class="menu-desktop__child" href="/">Acasa</a></li>
-                <li><a class="menu-desktop__child" href="/map.html">Harta</a></li>
+                <li><a class="menu-desktop__child" href="/" itemprop="url">Acasa</a></li>
+                <li><a class="menu-desktop__child" href="/map.html" itemprop="url">Harta</a></li>
                 <li>
-                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html"> Despre <span
+                    <a class="menu-desktop__child--submenu" href="/cum_functioneaza.html" itemprop="url"> Despre <span
                             class="icon-keyboard_arrow_down"> </span></a>
                     <ul class="menu-desktop-submenu">
-                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child">Despre noi</a></li>
-                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child">Cum functioneaza?</a>
+                        <li><a href="/despre_noi.html" class="menu-desktop-submenu__child" itemprop="url">Despre noi</a></li>
+                        <li><a href="/cum_functioneaza.html" class="menu-desktop-submenu__child" itemprop="url">Cum functioneaza?</a>
                         </li>
                     </ul>
                 </li>
@@ -36,17 +36,17 @@
         </div>
     </div>
 </div>
-<div class="menu-mobile-container">
+<div class="menu-mobile-container" itemscope itemtype="http://schema.org/WPHeader">
     <a href="/" class="logo-link">
         <img src="media/logo_geos.png" alt="logo" class="logo-img">
     </a>
     <div class="menu-icon" id="menu-icon"
          onclick="toggleElement('menu_mobile','menu-mobile--active');toggleThis('menu-icon','menu-icon--toggle')"></div>
     <div class="menu-mobile" id="menu_mobile">
-        <div><a class="menu-mobile__child home-icon generic-icon" href="/">Acasa</a></div>
-        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html">Harta</a></div>
-        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon">Despre noi</a></div>
-        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon">Cum
+        <div><a class="menu-mobile__child home-icon generic-icon" href="/" itemprop="url">Acasa</a></div>
+        <div><a class="menu-mobile__child explore-icon generic-icon" href="/map.html" itemprop="url">Harta</a></div>
+        <div><a href="/despre_noi.html" class="menu-mobile__child about-icon generic-icon" itemprop="url">Despre noi</a></div>
+        <div><a href="/cum_functioneaza.html" class="menu-mobile__child assignment-icon generic-icon" itemprop="url">Cum
             functioneaza?</a></div>
 
 
@@ -59,14 +59,14 @@
                 <div class="general-full">
                     <img class="avatar" src="media/andrei.jpg" alt="Default Avatar">
                 </div>
-                <div class="general-full">
-                    <div class="text-home-information--title general-color">
+                <div class="general-full" itemscope itemtype="http://schema.org/Person">
+                    <div class="text-home-information--title general-color" itemprop="givenName">
                         Ilie-Andrei Daneliuc
                     </div>
-                    <div class="text-home-information text-email">
+                    <div class="text-home-information text-email" itemprop="contactPoint">
                         daneliucilieandrei@gmail.com
                     </div>
-                    <a href="#" class="show-more-button">Afla mai multe</a>
+                    <a href="#" class="show-more-button" itemprop="url">Afla mai multe</a>
                 </div>
             </div>
         </div>
@@ -75,14 +75,14 @@
                 <div class="general-full">
                     <img class="avatar" src="media/gabi.jpg" alt="Default Avatar">
                 </div>
-                <div class="general-full">
-                    <div class="text-home-information--title general-color">
+                <div class="general-full" itemscope itemtype="http://schema.org/Person">
+                    <div class="text-home-information--title general-color" itemprop="givenName">
                         Miron Gabriel
                     </div>
-                    <div class="text-home-information text-email">
+                    <div class="text-home-information text-email" itemprop="contactPoint">
                         miron.gabriel2015@gmail.com
                     </div>
-                    <a href="#" class="show-more-button">Afla mai multe</a>
+                    <a href="#" class="show-more-button" itemprop="url">Afla mai multe</a>
                 </div>
             </div>
         </div>
@@ -91,42 +91,42 @@
                 <div class="general-full">
                     <img class="avatar" src="media/alex.jpg" alt="Default Avatar">
                 </div>
-                <div class="general-full">
-                    <div class="text-home-information--title general-color">
+                <div class="general-full" itemscope itemtype="http://schema.org/Person">
+                    <div class="text-home-information--title general-color" itemprop="givenName">
                         Alexandru Voaideș
                     </div>
-                    <div class="text-home-information text-email">
+                    <div class="text-home-information text-email" itemprop="contactPoint">
                         voaides.alex@gmail.com
                     </div>
-                    <a href="#" class="show-more-button">Afla mai multe</a>
+                    <a href="#" class="show-more-button" itemprop="url">Afla mai multe</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Footer -->
-<footer>
+<footer itemscope itemtype="http://schema.org/WPFooter">
     <div class="footer-container">
         <div class="container">
             <div class="line">
                 <div class="general-half general-full footer-left">
                     <ul class="footer-links">
                         <li class="footer-link">
-                            <a href="/" class="footer-link__a home-icon generic-icon">Acasa</a>
+                            <a href="/" class="footer-link__a home-icon generic-icon" itemprop="url">Acasa</a>
                         </li>
                         <li class="footer-link">
-                            <a href="#" class="footer-link__a question-icon generic-icon">Intrebari Frecvente</a>
+                            <a href="#" class="footer-link__a question-icon generic-icon" itemprop="url">Intrebari Frecvente</a>
                         </li>
                         <li class="footer-link">
-                            <a href="#" class="footer-link__a assignment-icon generic-icon">Termeni si Conditii</a>
+                            <a href="#" class="footer-link__a assignment-icon generic-icon" itemprop="url">Termeni si Conditii</a>
                         </li>
                     </ul>
                     <ul class="footer-links footer-links--right">
                         <li class="footer-link">
-                            <a href="/map.html" class="footer-link__a explore-icon generic-icon">Navigheaza pe Harta</a>
+                            <a href="/map.html" class="footer-link__a explore-icon generic-icon" itemprop="url">Navigheaza pe Harta</a>
                         </li>
                         <li class="footer-link">
-                            <a href="/despre_noi.html" class="footer-link__a about-icon generic-icon">Despre noi</a>
+                            <a href="/despre_noi.html" class="footer-link__a about-icon generic-icon" itemprop="url">Despre noi</a>
                         </li>
                     </ul>
                 </div>
@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div class="copyright">
+    <div class="copyright"  itemprop="copyrightHolder">
         Copyright © 2017 GeoS, Inc. All rights reserved.
         GeoS team M.G , D.I.A , V.A. .
     </div>

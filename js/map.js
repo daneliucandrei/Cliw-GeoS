@@ -3,7 +3,7 @@ var googleMap;
 var iconsPath = 'media/map/';
 var geolocationMarker = [];
 var flickrMarkers = [];
-var pxMarkers =[];
+var pxMarkers = [];
 var instagramMarkers = [];
 
 function initMap() {
@@ -11,6 +11,13 @@ function initMap() {
         center: defaultPos,
         zoom: 6
     });
+}
+
+function zoomMap(pos, zoom) {
+    console.log(googleMap.zoom)
+    googleMap.setCenter(pos);
+    googleMap.setZoom(zoom);
+
 }
 
 function CreateMarker(pos, title, icn, source) {
@@ -26,7 +33,7 @@ function CreateMarker(pos, title, icn, source) {
     if (source == "flickr") {
         flickrMarkers.push(marker);
     }
-    if(source == "500px") {
+    if (source == "500px") {
         pxMarkers.push(marker);
     }
 //    if (source == "instagram") {
@@ -161,10 +168,10 @@ _500px.init({
     sdk_key: 'ac79fd2f1e525036f209215b135afd746edf3ecd'
 });
 
-function createMap500px(data,fire) {
+function createMap500px(data, fire) {
     console.log(data)
-    setMapOnAll(null,pxMarkers)
-    if(fire) {
+    setMapOnAll(null, pxMarkers)
+    if (fire) {
         _500px.api('/photos/search', data, function (response) {
             map500px = response.data.photos;
             populateMap500px(response.data.photos);
@@ -179,7 +186,6 @@ function createMap500px(data,fire) {
 
 function populateMap500px(map) {
     for (var mapItem in map) {
-
         var pos = new google.maps.LatLng(
              map[mapItem].latitude ? map[mapItem].latitude : 0,
              map[mapItem].longitude ? map[mapItem].longitude : 0
@@ -188,7 +194,6 @@ function populateMap500px(map) {
          var icn = iconsPath + '500px-photos-marker.png';
          var marker = CreateMarker(pos, title, icn, "500px");
          var urlPhoto = map[mapItem].image_url;
-
          CreatePopUpMarker(marker, urlPhoto);
     }
 }
