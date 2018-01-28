@@ -81,7 +81,7 @@ function CreatePopUpMarker(marker, content) {
 function CreateUrlFlickr(dataFilter) {
     setMapOnAll(null, flickrMarkers);
     flickrMarkers = [];
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2eab41b196d9ba760b21e0b3004b48d&tag_mode=all&bbox=-180%2C-90%2C180%2C90&has_geo=1&radius=&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&tags=";
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2eab41b196d9ba760b21e0b3004b48d&tag_mode=all&bbox=-180%2C-90%2C180%2C90&has_geo=1&radius=&extras=geo&per_page=50&page=1&format=json&nojsoncallback=1&tags=";
     
     var tags = dataFilter.only.replace(/,/g,'%2C+');
     tags = tags.substr(0, tags.length - 4);   
@@ -130,7 +130,7 @@ function jsonFlickr(dataFilter, condition) {
     }
     else {
         setMapOnAll(null, flickrMarkers);
-        flickrMarkers = [];  
+        flickrMarkers = [];
     }
 }
 
