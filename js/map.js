@@ -65,46 +65,60 @@ function CreatePopUpMarker(marker, content) {
     });
 }
 
-/*function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3429cc6956360da0b9b62612771659a&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
+function CreateUrlFlickr() {
+    var ok = 0;
+    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ae1c82d8bc018a4706a0d14117f11f67&";
+    var value = document.getElementById("5_natura").checked;
+    if (!value == true) {
+        console.log("intra");
+        url = url + 'tags=nature';
+        ok = 1;
+    }
+    var value = document.getElementById("5_night").checked;
+    if (!value == true) {
+        if(ok)
+            url = url + '%2Cnight'
+        else
+            url = url + 'tags=night';
+    }
+    
+    url = url + '&tag_mode=all&bbox=-180%2C-90%2C180%2C90&has_geo=1&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&auth_token=72157668921226929-db905897542e9e02&api_sig=4e80c32dc44f72e2ccb0588b1ac26acb';
+    
+    return url;
+}
 
+function GetJsonFlickr() {
+    var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ae1c82d8bc018a4706a0d14117f11f67&format=json&nojsoncallback=1&auth_token=72157668921226929-db905897542e9e02&api_sig=4e80c32dc44f72e2ccb0588b1ac26acb&has_geo=1&extras=geo&per_page=500&bbox=-180%2C-90%2C180%2C90&tag_mode=all&tags=nature%2Cnight&page=1";
     fetch(url)
         .then(res => res.json()
 )
 .
     then((data) => {
-        for(var i = 0;
-    i < data.photos.photo.length;
-    i++
-)
-    {
-        var pos = new google.maps.LatLng(
-            data.photos.photo[i].latitude,
-            data.photos.photo[i].longitude
-        );
-        var title = data.photos.photo[i].title;
-        var icn = iconsPath + 'photos-marker.png';
-        var marker = CreateMarker(pos, title, icn, "flickr");
-        // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
-        var urlPhoto = "http://farm" +
-            data.photos.photo[i].farm +
-            ".staticflickr.com/" +
-            data.photos.photo[i].server +
-            "/" +
-            data.photos.photo[i].id +
-            "_" +
-            data.photos.photo[i].secret +
-            "_n.jpg"
+        for(var i = 0; i < data.photos.photo.length; i++)
+        {
+            var pos = new google.maps.LatLng(
+                data.photos.photo[i].latitude,
+                data.photos.photo[i].longitude
+            );
+            var title = data.photos.photo[i].title;
+            var icn = iconsPath + 'flickr-photos-marker.png';
+            var marker = CreateMarker(pos, title, icn, "flickr");
+            // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
+            var urlPhoto = "http://farm" +
+                data.photos.photo[i].farm +
+                ".staticflickr.com/" +
+                data.photos.photo[i].server +
+                "/" +
+                data.photos.photo[i].id +
+                "_" +
+                data.photos.photo[i].secret +
+                "_n.jpg"
 
-        CreatePopUpMarker(marker, urlPhoto);
-    }
-})
-.
-    catch(err = > {throw err}
-)
-    ;
+                CreatePopUpMarker(marker, urlPhoto);
+            }
+    })
 }
-*/
+
 function setMapOnAll(map, markers) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
