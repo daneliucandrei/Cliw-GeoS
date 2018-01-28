@@ -147,6 +147,15 @@ function watchStorage(list) {
                         jsonFlickr(dataFilter, false);
                     }
                 }
+                
+                if(this.id === 'geolocation') {
+                    if (this.checked) {
+                        Geolocation(true);
+                    }
+                    else {
+                        Geolocation(false);
+                    }
+                }
             };
         }
     }
@@ -230,8 +239,4 @@ window.onload = function () {
     };
 
     watchStorage(list);
-}
-
-list[key].onchange = function () {
-    console.log('schimbare:', this.id);
 }

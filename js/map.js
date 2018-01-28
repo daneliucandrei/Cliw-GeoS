@@ -42,22 +42,28 @@ function CreateMarker(pos, title, icn, source) {
     return marker;
 }
 
-function Geolocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var icn = iconsPath + 'geolocation-marker.png';
-            CreateMarker(pos, 'Locatia dumneavoastra.', icn, "geolocation");
-            googleMap.setCenter(pos);
-            googleMap.setZoom(15);
-        }, function () {
-            alert("Error: Serviciul Geolocation a esuat. Acesta a fost blocat.");
-        });
-    } else {
-        alert("Error: Browser-ul dumneavoastra nu suporta geolocation.")
+function Geolocation(condition) {
+    if(condition) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var icn = iconsPath + 'geolocation-marker.png';
+                CreateMarker(pos, 'Locatia dumneavoastra.', icn, "geolocation");
+                googleMap.setCenter(pos);
+                googleMap.setZoom(15);
+            }, function () {
+                alert("Error: Serviciul Geolocation a esuat. Acesta a fost blocat.");
+            });
+        } else {
+            alert("Error: Browser-ul dumneavoastra nu suporta geolocation.")
+        }
+    }
+    else {
+        setMapOnAll(null, geolocationMarker);
+        geolocationMarker = [];
     }
 }
 
