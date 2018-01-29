@@ -146,6 +146,7 @@ function watchStorage(list) {
                     dataFilter.geo = '';
                     boolCenter = false;
                 }
+                else
                 if (mapFilter.values['500px_input']) {
                     createMap500px(dataFilter, true);
                     dataFilter.only = '';
@@ -154,6 +155,7 @@ function watchStorage(list) {
                     dataFilter.geo = '';
                     boolCenter = false;
                 }
+                else
                 if (this.id === '500px_input') {
                     if (this.checked) {
                         createMap500px(dataFilter, true);
