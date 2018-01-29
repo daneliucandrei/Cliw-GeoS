@@ -12,6 +12,7 @@ function read_cookie(name) {
     result && (result = JSON.parse(result[1]));
     return result;
 }
+
 /** inner html **/
 var legendGeolocation = '<div class="general-full">\n' +
     '                <span id="geolocation_legend" class="display-inline font-size-20px">\n' +
@@ -21,18 +22,26 @@ var legendGeolocation = '<div class="general-full">\n' +
     '                </span>\n' +
     '            </div>\n'
 var legend500px = '<div class="general-full">\n' +
-'                <span id="500px_legend" class="display-inline font-size-20px">\n' +
-'                    <img src="media/map/500px-photos-marker.png" alt="photos-marker" style="margin-right: 12px;"\n' +
-'                         class="legend display-inline">\n' +
-'                    <span class="margin-bottom-s">Imagini de pe 500px.</span>\n' +
-'                </span>\n' +
-'            </div>\n'
+    '                <span id="500px_legend" class="display-inline font-size-20px">\n' +
+    '                    <img src="media/map/500px-photos-marker.png" alt="photos-marker" style="margin-right: 12px;"\n' +
+    '                         class="legend display-inline">\n' +
+    '                    <span class="margin-bottom-s">Imagini de pe 500px.</span>\n' +
+    '                </span>\n' +
+    '            </div>\n'
 var legendFlickr =
-        '            <div class="general-full">\n' +
+    '            <div class="general-full">\n' +
     '                <span id="flickr_legend" class="display-inline font-size-20px">\n' +
     '                    <img src="media/map/flickr-photos-marker.png" alt="photos-marker" style="margin-right: 12px;"\n' +
     '                         class="legend display-inline">\n' +
     '                    <span class="margin-bottom-s" itemprop="text">Imagini de pe Flickr.</span>\n' +
+    '                </span>\n' +
+    '            </div>'
+var legendInstagram =
+    '            <div class="general-full">\n' +
+    '                <span id="flickr_legend" class="display-inline font-size-20px">\n' +
+    '                    <img src="media/map/instagram-photos-marker.png" alt="photos-marker" style="margin-right: 12px;"\n' +
+    '                         class="legend display-inline">\n' +
+    '                    <span class="margin-bottom-s" itemprop="text">Imagini de pe Instagram.</span>\n' +
     '                </span>\n' +
     '            </div>'
 
@@ -136,8 +145,7 @@ function watchStorage(list) {
                     }
                 }
                 appliedFilters(list);
-                if (mapFilter.values['500px_input']&&mapFilter.values['flickr_input'])
-                {
+                if (mapFilter.values['500px_input'] && mapFilter.values['flickr_input']) {
                     createMap500px(dataFilter, true);
                     jsonFlickr(dataFilter, true);
                     dataFilter.only = '';
@@ -146,7 +154,7 @@ function watchStorage(list) {
                     dataFilter.geo = '';
                     boolCenter = false;
                 }
-                if (mapFilter.values['500px_input']) {
+                else if (mapFilter.values['500px_input']) {
                     createMap500px(dataFilter, true);
                     dataFilter.only = '';
                     dataFilter.was_featured_type = '';
@@ -154,7 +162,7 @@ function watchStorage(list) {
                     dataFilter.geo = '';
                     boolCenter = false;
                 }
-                if (this.id === '500px_input') {
+                else if (this.id === '500px_input') {
                     if (this.checked) {
                         createMap500px(dataFilter, true);
                     }
@@ -178,6 +186,14 @@ function watchStorage(list) {
                     }
                     else {
                         jsonFlickr(dataFilter, false);
+                    }
+                }
+                if (this.id === 'instagram_input') {
+                    if (this.checked) {
+                        instagramPhotos(true);
+                    }
+                    else {
+                        instagramPhotos(false);
                     }
                 }
 
@@ -210,13 +226,16 @@ function appliedFilters(list, removeAll) {
                         document.getElementById('filter-active').innerHTML += '<div class="top-filter-active" data-id=' + list[key].id + '>' + list[key].dataset.section + '</div>';
                     }
                     if (list[key].id === '500px_input') {
-                        document.getElementById('legendContainer').innerHTML+=legend500px;
+                        document.getElementById('legendContainer').innerHTML += legend500px;
                     }
                     if (list[key].id === 'flickr_input') {
-                        document.getElementById('legendContainer').innerHTML+=legendFlickr;
+                        document.getElementById('legendContainer').innerHTML += legendFlickr;
+                    }
+                    if (list[key].id === 'instagram_input') {
+                        document.getElementById('legendContainer').innerHTML += legendInstagram;
                     }
                     if (list[key].id === 'geolocation') {
-                        document.getElementById('legendContainer').innerHTML+=legendGeolocation;
+                        document.getElementById('legendContainer').innerHTML += legendGeolocation;
                     }
                 }
             }
@@ -276,6 +295,9 @@ window.onload = function () {
             }
             if (mapFilter.values['flickr_input']) {
                 jsonFlickr(dataFilter, true);
+            }
+            if (mapFilter.values['instagram_input']) {
+                instagramPhotos(true);
             }
         }
     }

@@ -5,6 +5,7 @@ var geolocationMarker = [];
 var flickrMarkers = [];
 var pxMarkers = [];
 var instagramMarkers = [];
+var vector = [1,2,3,4];
 
 function initMap() {
     googleMap = new google.maps.Map(document.getElementById('map'), {
@@ -36,9 +37,9 @@ function CreateMarker(pos, title, icn, source) {
     if (source == "500px") {
         pxMarkers.push(marker);
     }
-//    if (source == "instagram") {
-//        
-//    }
+    if (source == "instagram") {
+       instagramMarkers.push(marker);
+    }
     return marker;
 }
 
@@ -67,8 +68,12 @@ function Geolocation(condition) {
     }
 }
 
-function CreatePopUpMarker(marker, content) {
-    var contentString = "<img src=\"" + content + "\">";
+function CreatePopUpMarker(marker, content,source,description) {
+    var contentString = "<div style='font-size: 15px;font-weight:600;'>Source:"
+        +"<span style='font-size: 15px;font-weight:400;'>"+ source +"</span>"
+        +"</div>"+ "<div style='font-size: 15px;font-weight:600;'>Description:"
+        +"<span style='font-size: 15px;font-weight:400;'>"+ description +"</span>"
+        +"</div>"+"<a href='"+content+"' target='_blank'>"+"<img src=\"" + content + "\">"+"</a>";
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
@@ -81,7 +86,7 @@ function CreatePopUpMarker(marker, content) {
 function CreateUrlFlickr(dataFilter) {
     setMapOnAll(null, flickrMarkers);
     flickrMarkers = [];
-    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dfc8d2ba032e728f7ee40b81cef4b5af&has_geo=1&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1';
+    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dfc8d2ba032e728f7ee40b81cef4b5af&has_geo=1&extras=geo&per_page=50&page=1&format=json&nojsoncallback=1';
     
     var continents = dataFilter.geo;
     url = url + '&bbox=';
@@ -122,7 +127,6 @@ function CreateUrlFlickr(dataFilter) {
     tags = tags.substr(0, tags.length - 4);   
     url = url + tags;
     url = url + '&tag_mode=all';
-    console.log(url);
     return url;
 }
 
@@ -133,7 +137,7 @@ function GetJsonFlickr(dataFilter) {
 )
 .then((data) => {
         for(var i = 0; i < data.photos.photo.length; i++)
-        {
+        {  var desctiption =data.photos.photo[i].title;
             var pos = new google.maps.LatLng(
                 data.photos.photo[i].latitude,
                 data.photos.photo[i].longitude
@@ -152,7 +156,7 @@ function GetJsonFlickr(dataFilter) {
                 data.photos.photo[i].secret +
                 "_n.jpg"
 
-                CreatePopUpMarker(marker, urlPhoto);
+                CreatePopUpMarker(marker, urlPhoto,'Flickr',desctiption);
             }
     })
 }
@@ -167,6 +171,53 @@ function jsonFlickr(dataFilter, condition) {
         flickrMarkers = [];
     }
 }
+function createMapInsta(data,flag) {
+    if(flag) {
+        var title = 'No title';
+        var icn = iconsPath + 'instagram-photos-marker.png';
+        var iterator = 0.0004;
+
+        for (var key in data) {
+            var pos = new google.maps.LatLng(43.151726 + Math.random(10)*3+iterator,25.587914 + Math.random(10)*5+iterator);
+            var marker = CreateMarker(pos, title, icn, "instagram");
+            var urlPhoto = data[key].images.low_resolution.url;
+            iterator +=0.004;
+            CreatePopUpMarker(marker, urlPhoto, 'instagram', title);
+        }
+        for (var key in vector) {
+            var pos = new google.maps.LatLng(42.151726 + Math.random(10)*4+iterator, 25.587914 + Math.random(10)*4+iterator);
+            var marker = CreateMarker(pos, title, icn, "instagram");
+            var urlPhoto = iconsPath+'insta_'+(vector[key])+'.jpg';
+            iterator += 0.006;
+            CreatePopUpMarker(marker, urlPhoto, 'instagram', title);
+        }
+
+
+    }
+    else {
+        setMapOnAll(null, instagramMarkers)
+    }
+}
+function instagramPhotos(flag) {
+    if(flag) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1173973074.1677ed0.9a83d5673d3a4ace956c1030b4d569f6');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText).data;
+                createMapInsta(data,true);
+            }
+            else {
+                console.log(xhr.status);
+            }
+        };
+        xhr.send();
+    }
+    else {
+        createMapInsta({},false);
+    }
+}
+
 
 function setMapOnAll(map, markers) {
     for (var i = 0; i < markers.length; i++) {
@@ -204,6 +255,6 @@ function populateMap500px(map) {
          var icn = iconsPath + '500px-photos-marker.png';
          var marker = CreateMarker(pos, title, icn, "500px");
          var urlPhoto = map[mapItem].image_url;
-         CreatePopUpMarker(marker, urlPhoto);
+         CreatePopUpMarker(marker, urlPhoto,'500px',title);
     }
 }
