@@ -42,22 +42,28 @@ function CreateMarker(pos, title, icn, source) {
     return marker;
 }
 
-function Geolocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var icn = iconsPath + 'geolocation-marker.png';
-            CreateMarker(pos, 'Locatia dumneavoastra.', icn, "geolocation");
-            googleMap.setCenter(pos);
-            googleMap.setZoom(15);
-        }, function () {
-            alert("Error: Serviciul Geolocation a esuat. Acesta a fost blocat.");
-        });
-    } else {
-        alert("Error: Browser-ul dumneavoastra nu suporta geolocation.")
+function Geolocation(condition) {
+    if(condition) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var icn = iconsPath + 'geolocation-marker.png';
+                CreateMarker(pos, 'Locatia dumneavoastra.', icn, "geolocation");
+                googleMap.setCenter(pos);
+                googleMap.setZoom(15);
+            }, function () {
+                alert("Error: Serviciul Geolocation a esuat. Acesta a fost blocat.");
+            });
+        } else {
+            alert("Error: Browser-ul dumneavoastra nu suporta geolocation.")
+        }
+    }
+    else {
+        setMapOnAll(null, geolocationMarker);
+        geolocationMarker = [];
     }
 }
 
@@ -72,79 +78,99 @@ function CreatePopUpMarker(marker, content) {
     });
 }
 
-/*function GetJsonFlickr() {
-    let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=47510a816a4dcdf3de88893c6d937f27&lat=47.151726&lon=27.587914&radius=32&radius_units=km&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1&api_sig=ae1b5d604975efe2510faac97ab59c41";
+function CreateUrlFlickr(dataFilter) {
+    setMapOnAll(null, flickrMarkers);
+    flickrMarkers = [];
+    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d2eab41b196d9ba760b21e0b3004b48d&has_geo=1&extras=geo&per_page=500&page=1&format=json&nojsoncallback=1';
+    
+    var continents = dataFilter.geo;
+    url = url + '&bbox=';
+    switch(continents) {
+        case '2.070,15.800,4623.261km':
+            console.log('Africa.');
+            url = url + '-20%2C-30%2C60%2C30';
+            break;
+        case '52.976,7.857,1923.322km':
+            console.log('Europa.');
+            url = url + '-5%2C10%2C40%2C80';
+            break;
+        case '44.330,-109.754,3715.679km':
+            console.log('America de Nord.');
+            url = url + '-150%2C20%2C-50%2C90';
+            break;
+        case '-23.030,-67.903,3902.238km':
+            console.log('America de Sud.');
+            url = url + '-105%2C-55%2C-30%2C12';
+            break;
+        case '34.969,99.819,3733.764km':
+            console.log('Asia.');
+            url = url + '45%2C-10%2C160%2C80';
+            break;
+        case '-30.941,140.810,2334.124km':
+            console.log('Australia.');
+            url = url + '110%2C-50%2C160%2C-10';
+            break;
+        default:
+            console.log('Filtru fara Continent.');
+            url = url + '-180%2C-90%2C180%2C90'
+            break;
+    }
+    console.log(continents);
+    
+    var tags = dataFilter.only.replace(/,/g,'%2C+');
+    url = url + '&tags=';
+    tags = tags.substr(0, tags.length - 4);   
+    url = url + tags;
+    url = url + '&tag_mode=all';
+    console.log(url);
+    return url;
+}
 
+function GetJsonFlickr(dataFilter) {
+    var url = CreateUrlFlickr(dataFilter);
     fetch(url)
         .then(res => res.json()
 )
-.
-    then((data) => {
-        for(var i = 0;
-    i < data.photos.photo.length;
-    i++
-)
-    {
-        var pos = new google.maps.LatLng(
-            data.photos.photo[i].latitude,
-            data.photos.photo[i].longitude
-        );
-        var title = data.photos.photo[i].title;
-        var icn = iconsPath + 'photos-marker.png';
-        var marker = CreateMarker(pos, title, icn, "flickr");
-        // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
-        var urlPhoto = "http://farm" +
-            data.photos.photo[i].farm +
-            ".staticflickr.com/" +
-            data.photos.photo[i].server +
-            "/" +
-            data.photos.photo[i].id +
-            "_" +
-            data.photos.photo[i].secret +
-            "_n.jpg"
+.then((data) => {
+        for(var i = 0; i < data.photos.photo.length; i++)
+        {
+            var pos = new google.maps.LatLng(
+                data.photos.photo[i].latitude,
+                data.photos.photo[i].longitude
+            );
+            var title = data.photos.photo[i].title;
+            var icn = iconsPath + 'flickr-photos-marker.png';
+            var marker = CreateMarker(pos, title, icn, "flickr");
+            // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
+            var urlPhoto = "http://farm" +
+                data.photos.photo[i].farm +
+                ".staticflickr.com/" +
+                data.photos.photo[i].server +
+                "/" +
+                data.photos.photo[i].id +
+                "_" +
+                data.photos.photo[i].secret +
+                "_n.jpg"
 
-        CreatePopUpMarker(marker, urlPhoto);
-    }
-})
-.
-    catch(err = > {throw err}
-)
-    ;
+                CreatePopUpMarker(marker, urlPhoto);
+            }
+    })
 }
-*/
+
+function jsonFlickr(dataFilter, condition) {
+    if (condition) {
+        console.log(dataFilter.only);
+        GetJsonFlickr(dataFilter);
+    }
+    else {
+        setMapOnAll(null, flickrMarkers);
+        flickrMarkers = [];
+    }
+}
+
 function setMapOnAll(map, markers) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
-    }
-}
-
-function CheckFilters(filterId) {
-    if (filterId == "geolocation") {
-        var value = document.getElementById("geolocation").checked;
-        if (!value == true) {
-            Geolocation();
-            var legend = document.getElementById("geolocation_legend");
-            legend.classList.remove('hidden-legend-uncecked');
-        }
-        else {
-            setMapOnAll(null, geolocationMarker);
-            var legend = document.getElementById("geolocation_legend");
-            legend.classList.add('hidden-legend-uncecked');
-        }
-    }
-
-    if (filterId == "flickr_input") {
-        var value = document.getElementById("flickr_input").checked;
-        if (!value == true) {
-            GetJsonFlickr();
-            var legend = document.getElementById("flickr_legend");
-            legend.classList.remove('hidden-legend-uncecked');
-        }
-        else {
-            setMapOnAll(null, flickrMarkers);
-            var legend = document.getElementById("flickr_legend");
-            legend.classList.add('hidden-legend-uncecked');
-        }
     }
 }
 
@@ -155,13 +181,11 @@ _500px.init({
 });
 
 function createMap500px(data, fire) {
-    console.log(data)
     setMapOnAll(null, pxMarkers)
     if (fire) {
         _500px.api('/photos/search', data, function (response) {
             map500px = response.data.photos;
             populateMap500px(response.data.photos);
-            console.log(map500px);
         });
     }
     else {
@@ -172,17 +196,14 @@ function createMap500px(data, fire) {
 
 function populateMap500px(map) {
     for (var mapItem in map) {
-
         var pos = new google.maps.LatLng(
-            map[mapItem].latitude ? map[mapItem].latitude : 0,
-            map[mapItem].longitude ? map[mapItem].longitude : 0
-        );
-        var title = map[mapItem].name;
-        var icn = iconsPath + '500px.png';
-        var marker = CreateMarker(pos, title, icn, "500px");
-        // http:/farm-id.staticflickr.com/{server-id}/{id}_{secret}{size}.jpg
-        var urlPhoto = map[mapItem].image_url;
-
-        CreatePopUpMarker(marker, urlPhoto);
+             map[mapItem].latitude ? map[mapItem].latitude : 0,
+             map[mapItem].longitude ? map[mapItem].longitude : 0
+         );
+         var title = map[mapItem].name;
+         var icn = iconsPath + '500px-photos-marker.png';
+         var marker = CreateMarker(pos, title, icn, "500px");
+         var urlPhoto = map[mapItem].image_url;
+         CreatePopUpMarker(marker, urlPhoto);
     }
 }
