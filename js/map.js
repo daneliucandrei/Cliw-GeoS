@@ -86,7 +86,7 @@ function CreatePopUpMarker(marker, content,source,description) {
 function CreateUrlFlickr(dataFilter) {
     setMapOnAll(null, flickrMarkers);
     flickrMarkers = [];
-    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dfc8d2ba032e728f7ee40b81cef4b5af&has_geo=1&extras=geo&per_page=50&page=1&format=json&nojsoncallback=1';
+    let url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=40be3e389adaf4279b856f261b0ea991&has_geo=1&extras=geo&per_page=50&page=1&format=json&nojsoncallback=1';
     
     var continents = dataFilter.geo;
     url = url + '&bbox=';
